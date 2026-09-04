@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1410">
 <title>Haul & Heir — Fine Furniture &amp; White-Glove Moving</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,340;9..144,440;9..144,600;9..144,600,1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -98,6 +99,7 @@
   .hero-stat{margin-top:50px;padding-top:26px;border-top:1px solid var(--line);
     display:flex;gap:40px;color:rgba(243,237,225,0.6);font-size:0.86rem;flex-wrap:wrap;}
   .hero-stat b{display:block;font-family:'Fraunces';font-size:1.4rem;color:var(--ivory);font-weight:440;}
+  @media(max-width:480px){.hero-stat{gap:24px;}.cta-row .btn{flex:1;text-align:center;}}
 
   /* line-art furniture illustration styling */
   .lineart{stroke:var(--brass-bright);fill:none;stroke-width:1.4;transition:stroke .3s ease;}
@@ -144,7 +146,7 @@
   }
   .mobile-cta.show{transform:translateY(0);}
   .mobile-cta a{width:100%;text-align:center;}
-  @media(max-width:640px){.mobile-cta{display:flex;}}
+  @media(max-width:640px){.mobile-cta{display:flex;}footer{padding-bottom:88px;}}
 
   /* ---------- section shells ---------- */
   section{padding:104px 0;}
@@ -169,6 +171,26 @@
   @media(max-width:600px){.piece,.piece.big{grid-column:span 6;}}
   .piece .art{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;margin-bottom:22px;overflow:hidden;}
   .piece .art img{width:100%;height:100%;object-fit:cover;}
+  .piece .art img.clickable-photo{cursor:zoom-in;}
+
+  /* touch-friendly active states (mobile doesn't get :hover) */
+  .btn:active{transform:scale(0.97);}
+  .piece:active{background:#ece3d1;}
+  .nav-cta:active{background:var(--brass);color:var(--espresso)!important;}
+
+  /* ---------- lightbox ---------- */
+  .lightbox{
+    display:none;position:fixed;inset:0;z-index:100;background:rgba(28,20,16,0.94);
+    align-items:center;justify-content:center;padding:24px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:90vh;border:1px solid var(--line);}
+  .lightbox-close{
+    position:absolute;top:20px;right:24px;background:none;border:1px solid rgba(243,237,225,0.4);
+    color:var(--ivory);width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lightbox-close:hover{border-color:var(--brass-bright);color:var(--brass-bright);}
   .piece .art svg{transition:transform .45s ease;}
   .piece:hover .art svg{transform:scale(1.06);}
   .piece:hover .lineart{stroke:var(--burgundy);}
@@ -315,7 +337,7 @@
     <div class="collection-grid reveal-stagger reveal">
       <div class="piece big">
         <div class="art">
-          <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch">
+          <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" loading="lazy" decoding="async" class="clickable-photo" onclick="openLightbox(this.src, this.alt)">
         </div>
         <h3>Solid oak dining set &amp; hutch</h3>
         <p class="tag">Eight-seat table, six chairs, matching china hutch</p>
@@ -504,6 +526,11 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" onclick="if(event.target===this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <div class="mobile-cta" id="mobileCta">
   <a href="tel:5551234567" class="btn btn-primary">Call &amp; Enquire</a>
 </div>
@@ -511,6 +538,22 @@
 <script>
   document.getElementById('navToggle').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Lightbox for tapping/clicking a real product photo to view it larger.
+  function openLightbox(src, alt){
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxImg').alt = alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
   });
 
   // Scroll-reveal: fade + rise elements into view as the user scrolls.
