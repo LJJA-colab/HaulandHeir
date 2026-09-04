@@ -52,7 +52,12 @@
   }
   .logo-text{color:var(--ivory);font-family:'Fraunces';font-size:1.28rem;font-weight:440;}
   .nav-links{display:flex;gap:40px;align-items:center;}
-  .nav-links a{color:var(--ivory-dim);font-size:0.9rem;font-weight:300;letter-spacing:0.01em;transition:color .2s;}
+  .nav-links a{color:var(--ivory-dim);font-size:0.9rem;font-weight:300;letter-spacing:0.01em;transition:color .2s;position:relative;padding-bottom:2px;}
+  .nav-links a:not(.nav-cta)::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass-bright);
+    transition:width .25s ease;
+  }
+  .nav-links a:not(.nav-cta):hover::after{width:100%;}
   .nav-links a:hover{color:var(--brass-bright);}
   .nav-cta{
     border:1px solid var(--brass);color:var(--brass-bright)!important;padding:10px 22px;border-radius:1px;
@@ -95,8 +100,51 @@
   .hero-stat b{display:block;font-family:'Fraunces';font-size:1.4rem;color:var(--ivory);font-weight:440;}
 
   /* line-art furniture illustration styling */
-  .lineart{stroke:var(--brass-bright);fill:none;stroke-width:1.4;}
-  .lineart-fill{fill:rgba(176,141,87,0.08);}
+  .lineart{stroke:var(--brass-bright);fill:none;stroke-width:1.4;transition:stroke .3s ease;}
+  .lineart-fill{fill:rgba(176,141,87,0.08);transition:fill .3s ease;}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--walnut);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;}
+  .ticker-track{display:inline-flex;animation:scroll-left 32s linear infinite;}
+  .ticker-track span{color:var(--brass-bright);font-family:'Fraunces';font-style:italic;font-size:0.92rem;
+    letter-spacing:0.02em;padding:0 28px;display:inline-flex;align-items:center;gap:28px;}
+  .ticker-track span::after{content:"◆";font-size:0.6rem;color:var(--brass);opacity:0.5;}
+  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){.ticker-track{animation:none;}}
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .reveal-stagger.visible .piece,
+  .reveal-stagger.visible .step,
+  .reveal-stagger.visible .review{opacity:1;transform:translateY(0);}
+  .reveal-stagger .piece,
+  .reveal-stagger .step,
+  .reveal-stagger .review{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal-stagger.visible .piece:nth-child(1){transition-delay:.05s;}
+  .reveal-stagger.visible .piece:nth-child(2){transition-delay:.12s;}
+  .reveal-stagger.visible .piece:nth-child(3){transition-delay:.19s;}
+  .reveal-stagger.visible .piece:nth-child(4){transition-delay:.26s;}
+  .reveal-stagger.visible .piece:nth-child(5){transition-delay:.33s;}
+  .reveal-stagger.visible .step:nth-child(1){transition-delay:.05s;}
+  .reveal-stagger.visible .step:nth-child(2){transition-delay:.15s;}
+  .reveal-stagger.visible .step:nth-child(3){transition-delay:.25s;}
+  .reveal-stagger.visible .review:nth-child(1){transition-delay:.05s;}
+  .reveal-stagger.visible .review:nth-child(2){transition-delay:.15s;}
+  .reveal-stagger.visible .review:nth-child(3){transition-delay:.25s;}
+
+  /* ---------- hero tilt ---------- */
+  .hero-art{transition:transform .15s ease-out;transform-style:preserve-3d;}
+
+  /* ---------- sticky mobile cta ---------- */
+  .mobile-cta{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--espresso);
+    border-top:1px solid var(--line);padding:14px 20px;justify-content:center;
+    transform:translateY(100%);transition:transform .3s ease;
+  }
+  .mobile-cta.show{transform:translateY(0);}
+  .mobile-cta a{width:100%;text-align:center;}
+  @media(max-width:640px){.mobile-cta{display:flex;}}
 
   /* ---------- section shells ---------- */
   section{padding:104px 0;}
@@ -113,11 +161,18 @@
   .collection-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .piece{
     background:var(--ivory);padding:34px 30px;display:flex;flex-direction:column;grid-column:span 2;
+    transition:background .35s ease;
   }
+  .piece:hover{background:#ece3d1;}
   .piece.big{grid-column:span 3;}
   @media(max-width:900px){.piece{grid-column:span 3;}.piece.big{grid-column:span 6;}}
   @media(max-width:600px){.piece,.piece.big{grid-column:span 6;}}
-  .piece .art{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+  .piece .art{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;margin-bottom:22px;overflow:hidden;}
+  .piece .art img{width:100%;height:100%;object-fit:cover;}
+  .piece .art svg{transition:transform .45s ease;}
+  .piece:hover .art svg{transform:scale(1.06);}
+  .piece:hover .lineart{stroke:var(--burgundy);}
+  .piece:hover .lineart-fill{fill:rgba(74,32,32,0.08);}
   .piece.big .art{aspect-ratio:16/9;}
   .piece h3{font-size:1.2rem;font-weight:440;}
   .piece .tag{color:var(--ink-soft);font-size:0.84rem;margin-top:5px;letter-spacing:0.01em;}
@@ -126,6 +181,17 @@
   .piece .price{font-family:'Fraunces';font-size:1.14rem;color:var(--ink);}
   .piece .ask{font-size:0.82rem;color:var(--brass);border-bottom:1px solid var(--brass);padding-bottom:1px;}
   .piece .ask:hover{color:var(--burgundy);border-color:var(--burgundy);}
+
+  /* ---------- reviews ---------- */
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:860px){.reviews-grid{grid-template-columns:1fr;}}
+  .review{background:var(--ivory);padding:38px 34px;display:flex;flex-direction:column;transition:background .35s ease;}
+  .review:hover{background:#ece3d1;}
+  .review .stars{color:var(--brass);font-size:0.9rem;letter-spacing:0.12em;margin-bottom:18px;}
+  .review .quote{font-family:'Fraunces';font-style:italic;font-weight:340;font-size:1.06rem;line-height:1.55;color:var(--ink);flex:1;}
+  .review .who{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:2px;}
+  .review .name{font-size:0.92rem;color:var(--ink);}
+  .review .role{font-size:0.82rem;color:var(--ink-soft);}
 
   /* ---------- moving / white glove ---------- */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
@@ -188,9 +254,10 @@
     <nav class="nav-links" id="navLinks">
       <a href="#collection">The Collection</a>
       <a href="#moving">Moving</a>
+      <a href="#reviews">Reviews</a>
       <a href="#about">The House</a>
       <a href="#visit">Visit</a>
-      <a href="tel:6475093577" class="nav-cta">(647) 509-3577</a>
+      <a href="tel:5551234567" class="nav-cta">(555) 123-4567</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
   </div>
@@ -204,15 +271,16 @@
       <p class="lede">We source and restore fine furniture — then move it, and everything else in your home, with the same care we'd give a piece worth keeping for generations.</p>
       <div class="cta-row">
         <a href="#collection" class="btn btn-primary">View the collection</a>
-        <a href="tel:6475093577" class="btn btn-ghost">Enquire about a move</a>
+        <a href="tel:5551234567" class="btn btn-ghost">Enquire about a move</a>
       </div>
       <div class="hero-stat">
+        <div><b>Est. 2019</b>three founders, one warehouse</div>
         <div><b>White-glove</b>every move, every piece</div>
         <div><b>By appointment</b>and open showroom hours</div>
       </div>
     </div>
     <div>
-      <svg viewBox="0 0 400 420" role="img" aria-label="Line illustration of a wingback armchair">
+      <svg class="hero-art" id="heroArt" viewBox="0 0 400 420" role="img" aria-label="Line illustration of a wingback armchair">
         <ellipse cx="200" cy="392" rx="120" ry="10" fill="var(--brass)" opacity="0.12"/>
         <path class="lineart lineart-fill" d="M110 130 Q108 76 160 66 L240 66 Q292 76 290 130 L296 240 L104 240 Z"/>
         <path class="lineart" d="M104 240 L296 240" />
@@ -229,29 +297,28 @@
   </div>
 </section>
 
+<div class="ticker">
+  <div class="ticker-track">
+    <span>SOURCED &amp; RESTORED</span><span>WHITE-GLOVE MOVING</span><span>BY APPOINTMENT</span><span>EST. 2019</span><span>ST. PAUL, MN</span>
+    <span>SOURCED &amp; RESTORED</span><span>WHITE-GLOVE MOVING</span><span>BY APPOINTMENT</span><span>EST. 2019</span><span>ST. PAUL, MN</span>
+  </div>
+</div>
+
 <section id="collection">
   <div class="wrap">
-    <div class="kicker-block">
+    <div class="kicker-block reveal">
       <div class="rule" style="background:var(--brass)"></div>
       <h2>The current collection</h2>
       <p>Each piece is sourced privately — estate sales, closing homes, select consignment — then restored by hand. Reserve a piece by phone or in person; pieces are not held online.</p>
     </div>
 
-    <div class="collection-grid">
+    <div class="collection-grid reveal-stagger reveal">
       <div class="piece big">
         <div class="art">
-          <svg viewBox="0 0 300 170" width="86%">
-            <rect class="lineart lineart-fill" x="24" y="34" width="252" height="102" rx="4"/>
-            <line class="lineart" x1="24" y1="60" x2="276" y2="60"/>
-            <rect class="lineart" x="40" y="70" width="100" height="52" rx="2"/>
-            <rect class="lineart" x="160" y="70" width="100" height="52" rx="2"/>
-            <circle class="lineart" cx="90" cy="96" r="3"/>
-            <circle class="lineart" cx="210" cy="96" r="3"/>
-            <line class="lineart" x1="40" y1="128" x2="260" y2="128"/>
-          </svg>
+          <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch">
         </div>
-        <h3>Georgian mahogany sideboard</h3>
-        <p class="tag">Early 20th c. · hand-restored brass hardware</p>
+        <h3>Solid oak dining set &amp; hutch</h3>
+        <p class="tag">Eight-seat table, six chairs, matching china hutch</p>
         <div class="row end"><a href="#visit" class="ask">Enquire</a></div>
       </div>
 
@@ -316,12 +383,12 @@
 
 <section class="section-dark" id="moving">
   <div class="wrap">
-    <div class="kicker-block">
+    <div class="kicker-block reveal">
       <div class="rule"></div>
       <h2>White-glove moving</h2>
       <p>The same three founders who restore the collection run every move — so anything valuable, fragile, or irreplaceable is handled like it's already ours.</p>
     </div>
-    <div class="steps">
+    <div class="steps reveal-stagger reveal">
       <div class="step">
         <div class="num">I.</div>
         <h3>Private walkthrough</h3>
@@ -341,8 +408,35 @@
   </div>
 </section>
 
+<section id="reviews">
+  <div class="wrap">
+    <div class="kicker-block reveal">
+      <div class="rule" style="background:var(--brass)"></div>
+      <h2>What clients say</h2>
+      <p>Placeholder reviews below — swap these for your own once the first pieces and moves are done.</p>
+    </div>
+    <div class="reviews-grid reveal-stagger reveal">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The sideboard looked like a museum piece by the time it arrived. They wrapped it like it was worth more than the truck."</p>
+        <div class="who"><span class="name">A. Whitfield</span><span class="role">Purchased a Georgian sideboard</span></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Moved a four-bedroom house and not a single scratch. They treated our furniture better than our last movers treated boxes."</p>
+        <div class="who"><span class="name">R. Okafor</span><span class="role">Full-home move, St. Paul</span></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Found a settee I'd been searching for for months. The restoration work is genuinely museum-grade."</p>
+        <div class="who"><span class="name">M. Delacroix</span><span class="role">Purchased a Chesterfield settee</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="about">
-  <div class="wrap about">
+  <div class="wrap about reveal">
     <div class="founders-figure">
       <svg viewBox="0 0 260 220" role="img" aria-label="Line illustration of a moving crate with brass corners">
         <rect class="lineart lineart-fill" x="50" y="70" width="160" height="110" rx="2"/>
@@ -358,37 +452,39 @@
     <div>
       <div class="rule" style="background:var(--brass);margin-bottom:20px;"></div>
       <h2>Three founders, one standard</h2>
-      <p>Haul &amp; Heir started when three friends — kept running into the same problem: good furniture, moved badly or thrown out due to a lack of space, ends up ruined.</p>
+      <p>Haul &amp; Heir started when three friends — one in restoration, one in logistics, one in design — kept running into the same problem: good furniture, moved badly, ends up ruined.</p>
       <p>We built the business backwards from that: source pieces worth keeping, then make sure the move never becomes the reason they don't survive another generation.</p>
     </div>
   </div>
 </section>
 
 <section class="visit" id="visit">
-  <div class="wrap visit-grid">
+  <div class="wrap visit-grid reveal">
     <div>
       <div class="rule" style="background:var(--brass-bright);margin-bottom:20px;"></div>
       <h2>Visit the showroom</h2>
       <dl class="info-list">
-        <div><dt>Showroom</dt><dd>Invite only</dd></div>
-        <div><dt>Hours</dt><dd>By appointment</dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:6475093577">(647) 509-3577</a></dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:haulandheir@gmail.com">haulandheir@gmail.com</a></dd></div>
+        <div><dt>Showroom</dt><dd>1420 Millwright Ave, St. Paul, MN</dd></div>
+        <div><dt>Hours</dt><dd>By appointment, and Tue–Sat 10–5</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:5551234567">(555) 123-4567</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:hello@haulandheir.com">hello@haulandheir.com</a></dd></div>
       </dl>
     </div>
     <div>
-      <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you — we\'ll be in touch shortly.');">
+      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="enquiryForm">
+        <input type="hidden" name="form-name" value="enquiry">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
         <div>
           <label for="name">Name</label>
-          <input id="name" type="text" required>
+          <input id="name" name="name" type="text" required>
         </div>
         <div>
           <label for="contact">Phone or email</label>
-          <input id="contact" type="text" required>
+          <input id="contact" name="contact" type="text" required>
         </div>
         <div>
           <label for="msg">How can we help?</label>
-          <textarea id="msg" placeholder="A piece you're enquiring about, or details on a move..."></textarea>
+          <textarea id="msg" name="message" placeholder="A piece you're enquiring about, or details on a move..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send enquiry</button>
       </form>
@@ -398,18 +494,81 @@
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Haul &amp; Heir. Toronto, ON, Canada</p>
+    <p>© 2026 Haul &amp; Heir. St. Paul, MN.</p>
     <div class="flinks">
       <a href="#collection">The Collection</a>
       <a href="#moving">Moving</a>
+      <a href="#reviews">Reviews</a>
       <a href="#visit">Visit</a>
     </div>
   </div>
 </footer>
 
+<div class="mobile-cta" id="mobileCta">
+  <a href="tel:5551234567" class="btn btn-primary">Call &amp; Enquire</a>
+</div>
+
 <script>
   document.getElementById('navToggle').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Scroll-reveal: fade + rise elements into view as the user scrolls.
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Subtle tilt on the hero illustration, following the cursor.
+  const heroArt = document.getElementById('heroArt');
+  if (heroArt && window.matchMedia('(hover:hover)').matches){
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      heroArt.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      heroArt.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
+    });
+  }
+
+  // Show the sticky mobile CTA once the user has scrolled past the hero.
+  const mobileCta = document.getElementById('mobileCta');
+  const heroEl = document.getElementById('top');
+  const ctaObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      mobileCta.classList.toggle('show', !entry.isIntersecting);
+    });
+  }, {threshold:0});
+  ctaObserver.observe(heroEl);
+
+  // Submits to Netlify Forms via fetch so the page doesn't reload.
+  // If you're NOT hosting on Netlify, swap this form to use Formspree instead:
+  // <form action="https://formspree.io/f/yourFormID" method="POST"> and remove the fetch below.
+  const enquiryForm = document.getElementById('enquiryForm');
+  enquiryForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(enquiryForm);
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      enquiryForm.reset();
+      alert('Thank you — we\'ll be in touch shortly.');
+    })
+    .catch(() => {
+      alert('Something went wrong — please call or email us directly.');
+    });
   });
 </script>
 
