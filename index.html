@@ -118,11 +118,9 @@
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
   .reveal.visible{opacity:1;transform:translateY(0);}
   .reveal-stagger.visible .piece,
-  .reveal-stagger.visible .step,
-  .reveal-stagger.visible .review{opacity:1;transform:translateY(0);}
+  .reveal-stagger.visible .step{opacity:1;transform:translateY(0);}
   .reveal-stagger .piece,
-  .reveal-stagger .step,
-  .reveal-stagger .review{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal-stagger .step{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
   .reveal-stagger.visible .piece:nth-child(1){transition-delay:.05s;}
   .reveal-stagger.visible .piece:nth-child(2){transition-delay:.12s;}
   .reveal-stagger.visible .piece:nth-child(3){transition-delay:.19s;}
@@ -131,9 +129,6 @@
   .reveal-stagger.visible .step:nth-child(1){transition-delay:.05s;}
   .reveal-stagger.visible .step:nth-child(2){transition-delay:.15s;}
   .reveal-stagger.visible .step:nth-child(3){transition-delay:.25s;}
-  .reveal-stagger.visible .review:nth-child(1){transition-delay:.05s;}
-  .reveal-stagger.visible .review:nth-child(2){transition-delay:.15s;}
-  .reveal-stagger.visible .review:nth-child(3){transition-delay:.25s;}
 
   /* ---------- hero tilt ---------- */
   .hero-art{transition:transform .15s ease-out;transform-style:preserve-3d;}
@@ -172,6 +167,7 @@
   .featured-content h3{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:18px;}
   .featured-content .tag{color:var(--ink-soft);font-size:0.92rem;margin-top:6px;letter-spacing:0.01em;}
   .featured-desc{margin-top:20px;color:var(--ink-soft);font-size:1.02rem;max-width:48ch;}
+  .featured-anchor{margin-top:12px;color:var(--brass);font-size:0.92rem;font-style:italic;max-width:48ch;}
   .featured-content .btn{margin-top:28px;}
   .featured-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-soft);
     font-size:0.88rem;font-style:italic;max-width:44ch;}
@@ -266,6 +262,9 @@
   footer .flinks{display:flex;gap:24px;}
   footer .flinks a{color:rgba(243,237,225,0.55);font-size:0.84rem;}
   footer .flinks a:hover{color:var(--brass-bright);}
+  .social-links{display:flex;gap:16px;}
+  .social-links a{color:rgba(243,237,225,0.55);transition:color .2s ease;}
+  .social-links a:hover{color:var(--brass-bright);}
 
   :focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
@@ -352,6 +351,7 @@
         <h3>Solid oak dining set &amp; hutch</h3>
         <p class="tag">Eight-seat table, six chairs, matching china hutch</p>
         <p class="featured-desc">Solid oak throughout, in excellent original condition — the kind of set built to be handed down rather than replaced. Comes as a full set: table, six upholstered chairs, and the matching hutch.</p>
+        <p class="featured-anchor">Comparable solid oak dining sets with a matching hutch typically retail for $4,000–$6,000 new.</p>
         <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
         <p class="featured-note">New pieces are added as we find them — call or visit to ask what else is currently in the warehouse.</p>
       </div>
@@ -450,6 +450,14 @@
       <a href="#collection">The Collection</a>
       <a href="#moving">Moving</a>
       <a href="#visit">Visit</a>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/haulandheir" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://facebook.com/haulandheir" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.57 14.2 3.57c-2.4 0-4.05 1.47-4.05 4.16v2.16H7.5v3.1h2.65V21h3.35z"/></svg>
+      </a>
     </div>
   </div>
 </footer>
