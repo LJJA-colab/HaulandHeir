@@ -163,23 +163,38 @@
   .section-dark .kicker-block h2{color:var(--ivory);}
   .section-dark .kicker-block p{color:rgba(243,237,225,0.65);}
 
-  /* ---------- featured piece showcase ---------- */
-  .featured-piece{display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;}
-  @media(max-width:860px){.featured-piece{grid-template-columns:1fr;gap:36px;}}
-  .featured-media{position:relative;padding:18px;}
-  .featured-media img{aspect-ratio:4/3;width:100%;object-fit:cover;cursor:zoom-in;}
-  .featured-media .corner{position:absolute;width:26px;height:26px;border:2px solid var(--brass);}
-  .featured-media .corner.tl{top:0;left:0;border-right:none;border-bottom:none;}
-  .featured-media .corner.tr{top:0;right:0;border-left:none;border-bottom:none;}
-  .featured-media .corner.bl{bottom:0;left:0;border-right:none;border-top:none;}
-  .featured-media .corner.br{bottom:0;right:0;border-left:none;border-top:none;}
-  .featured-content h3{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:18px;}
-  .featured-content .tag{color:var(--ink-soft);font-size:0.92rem;margin-top:6px;letter-spacing:0.01em;}
-  .featured-desc{margin-top:20px;color:var(--ink-soft);font-size:1.02rem;max-width:48ch;}
-  .featured-anchor{margin-top:12px;color:var(--brass);font-size:0.92rem;font-style:italic;max-width:48ch;}
-  .featured-content .btn{margin-top:28px;}
+  /* ---------- pieces grid ---------- */
+  .pieces-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  @media(max-width:860px){.pieces-grid{grid-template-columns:1fr;gap:44px;}}
+  .piece-media{position:relative;padding:18px;}
+  .piece-media img.piece-img{aspect-ratio:4/3;width:100%;object-fit:cover;cursor:zoom-in;}
+  .piece-media .corner{position:absolute;width:26px;height:26px;border:2px solid var(--brass);z-index:2;}
+  .piece-media .corner.tl{top:0;left:0;border-right:none;border-bottom:none;}
+  .piece-media .corner.tr{top:0;right:0;border-left:none;border-bottom:none;}
+  .piece-media .corner.bl{bottom:0;left:0;border-right:none;border-top:none;}
+  .piece-media .corner.br{bottom:0;right:0;border-left:none;border-top:none;}
+  .piece-card-content h3{font-size:clamp(1.4rem,2.2vw,1.7rem);margin-top:18px;}
+  .piece-card-content .tag{color:var(--ink-soft);font-size:0.9rem;margin-top:6px;letter-spacing:0.01em;}
+  .piece-card-content .featured-desc{margin-top:16px;color:var(--ink-soft);font-size:0.98rem;max-width:48ch;}
+  .piece-card-content .featured-anchor{margin-top:10px;color:var(--brass);font-size:0.88rem;font-style:italic;max-width:48ch;}
+  .piece-card-content .btn{margin-top:22px;}
   .featured-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-soft);
-    font-size:0.88rem;font-style:italic;max-width:44ch;}
+    font-size:0.88rem;font-style:italic;max-width:60ch;}
+
+  /* carousel controls */
+  .carousel-arrow{
+    display:none;position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+    width:34px;height:34px;border-radius:50%;border:1px solid var(--brass);background:rgba(28,20,16,0.55);
+    color:var(--ivory);font-size:1.1rem;cursor:pointer;align-items:center;justify-content:center;
+  }
+  .piece-media[data-images] .carousel-arrow{display:flex;}
+  .carousel-arrow.prev{left:28px;}
+  .carousel-arrow.next{right:28px;}
+  .carousel-arrow:hover{background:var(--brass);color:var(--espresso);}
+  .carousel-dots{display:none;position:absolute;bottom:28px;left:0;right:0;justify-content:center;gap:8px;z-index:3;}
+  .piece-media[data-images] .carousel-dots{display:flex;}
+  .carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(243,237,225,0.5);border:1px solid var(--espresso);}
+  .carousel-dots span.active{background:var(--brass);}
 
   /* ---------- collection grid ---------- */
   .collection-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -370,24 +385,41 @@
       <p>Each piece is sourced privately — estate sales, closing homes, select consignment — then restored by hand. Reserve a piece by phone or in person; pieces are not held online.</p>
     </div>
 
-    <div class="featured-piece reveal">
-      <div class="featured-media">
-        <div class="corner tl"></div>
-        <div class="corner tr"></div>
-        <div class="corner bl"></div>
-        <div class="corner br"></div>
-        <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" loading="lazy" decoding="async" class="clickable-photo" onclick="openLightbox(this.src, this.alt)">
+    <div class="pieces-grid reveal-stagger reveal">
+      <div class="piece-card">
+        <div class="piece-media" data-images='["images/dining-set-hutch.jpg","images/dining-hutch-2.jpg"]'>
+          <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+          <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" loading="lazy" decoding="async" class="piece-img clickable-photo" data-index="0" onclick="openLightbox(this.src, this.alt)">
+          <button class="carousel-arrow prev" type="button" aria-label="Previous photo" onclick="event.stopPropagation(); cycleCarousel(this, -1)">‹</button>
+          <button class="carousel-arrow next" type="button" aria-label="Next photo" onclick="event.stopPropagation(); cycleCarousel(this, 1)">›</button>
+          <div class="carousel-dots">
+            <span class="active"></span><span></span>
+          </div>
+        </div>
+        <div class="piece-card-content">
+          <h3>Solid oak dining set &amp; hutch</h3>
+          <p class="tag">Eight-seat table, six chairs, matching hutch</p>
+          <p class="featured-desc">Solid oak throughout, in excellent original condition — the kind of set built to be handed down rather than replaced. Comes as a full set: table, six upholstered chairs, and the matching hutch.</p>
+          <p class="featured-anchor">Comparable solid oak dining sets with a matching hutch typically retail for $4,000–$6,000 new.</p>
+          <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
+        </div>
       </div>
-      <div class="featured-content">
-        <div class="eyebrow-mark" style="color:var(--brass);"><span class="rule" style="background:var(--brass)"></span>Currently featured</div>
-        <h3>Solid oak dining set &amp; hutch</h3>
-        <p class="tag">Eight-seat table, six chairs, matching china hutch</p>
-        <p class="featured-desc">Solid oak throughout, in excellent original condition — the kind of set built to be handed down rather than replaced. Comes as a full set: table, six upholstered chairs, and the matching hutch.</p>
-        <p class="featured-anchor">Comparable solid oak dining sets with a matching hutch typically retail for $4,000–$6,000 new.</p>
-        <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
-        <p class="featured-note">New pieces are added as we find them — call or visit to ask what else is currently in the warehouse.</p>
+
+      <div class="piece-card">
+        <div class="piece-media">
+          <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+          <img src="images/italian-conference-table.jpg" alt="Italian conference table, high-gloss finish" loading="lazy" decoding="async" class="piece-img clickable-photo" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="piece-card-content">
+          <h3>Italian conference table</h3>
+          <p class="tag">High-gloss lacquer finish, chrome-trimmed base</p>
+          <p class="featured-desc">A striking statement table with a mirror-polished lacquer top — built for a boardroom, equally at home as a dramatic dining or gathering table.</p>
+          <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
+        </div>
       </div>
     </div>
+
+    <p class="featured-note" style="margin-top:36px;">New pieces are added as we find them — call or visit to ask what else is currently in the warehouse.</p>
   </div>
 </section>
 
@@ -436,15 +468,32 @@
 <section id="about">
   <div class="wrap about reveal">
     <div class="founders-figure">
-      <svg viewBox="0 0 260 220" role="img" aria-label="Line illustration of a moving crate with brass corners">
-        <rect class="lineart lineart-fill" x="50" y="70" width="160" height="110" rx="2"/>
-        <line class="lineart" x1="50" y1="70" x2="210" y2="70"/>
-        <line class="lineart" x1="90" y1="70" x2="90" y2="180"/>
-        <line class="lineart" x1="170" y1="70" x2="170" y2="180"/>
-        <rect x="46" y="66" width="12" height="12" fill="var(--brass)" opacity="0.7"/>
-        <rect x="202" y="66" width="12" height="12" fill="var(--brass)" opacity="0.7"/>
-        <rect x="46" y="174" width="12" height="12" fill="var(--brass)" opacity="0.7"/>
-        <rect x="202" y="174" width="12" height="12" fill="var(--brass)" opacity="0.7"/>
+      <svg viewBox="0 0 340 240" role="img" aria-label="Line illustration of a wooden shipping crate with a strap and tag, beside a restored armchair">
+        <ellipse cx="175" cy="222" rx="150" ry="9" fill="var(--brass)" opacity="0.12"/>
+
+        <!-- hanging tag + string -->
+        <line class="lineart" x1="40" y1="106" x2="18" y2="58"/>
+        <rect class="lineart lineart-fill" x="4" y="40" width="32" height="20" rx="3" transform="rotate(-18 20 50)"/>
+        <text x="14" y="54" transform="rotate(-18 20 50)" font-family="Fraunces" font-style="italic" font-size="10" fill="var(--brass-bright)">H&amp;H</text>
+
+        <!-- crate: isometric box -->
+        <path class="lineart lineart-fill" d="M40 110 L140 110 L140 210 L40 210 Z"/>
+        <path class="lineart lineart-fill" d="M40 110 L75 80 L175 80 L140 110 Z"/>
+        <path class="lineart lineart-fill" d="M140 110 L175 80 L175 180 L140 210 Z"/>
+        <line class="lineart" x1="40" y1="110" x2="140" y2="210"/>
+        <line class="lineart" x1="140" y1="110" x2="40" y2="210"/>
+        <rect x="36" y="106" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
+        <rect x="134" y="106" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
+        <rect x="36" y="204" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
+        <rect x="134" y="204" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
+
+        <!-- restored armchair beside the crate -->
+        <path class="lineart lineart-fill" d="M212 100 Q212 78 232 76 L272 76 Q292 78 292 100 L294 160 L210 160 Z"/>
+        <rect class="lineart lineart-fill" x="205" y="160" width="96" height="26" rx="5"/>
+        <path class="lineart" d="M196 132 Q186 132 186 152 L186 178 Q186 196 204 196 L218 196 L218 158 Q218 140 232 136 L218 132 Z"/>
+        <path class="lineart" d="M310 132 Q320 132 320 152 L320 178 Q320 196 302 196 L288 196 L288 158 Q288 140 274 136 L288 132 Z"/>
+        <line class="lineart" x1="216" y1="196" x2="216" y2="216"/>
+        <line class="lineart" x1="290" y1="196" x2="290" y2="216"/>
       </svg>
     </div>
     <div>
@@ -553,6 +602,19 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
   });
+
+  // Cycle through a piece's photo carousel (used when a piece has multiple images).
+  function cycleCarousel(button, direction){
+    const media = button.closest('.piece-media');
+    const images = JSON.parse(media.dataset.images);
+    const img = media.querySelector('.piece-img');
+    let index = parseInt(img.dataset.index, 10);
+    index = (index + direction + images.length) % images.length;
+    img.src = images[index];
+    img.dataset.index = index;
+    const dots = media.querySelectorAll('.carousel-dots span');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  }
 
   // Scroll-reveal: fade + rise elements into view as the user scrolls.
   const revealEls = document.querySelectorAll('.reveal');
