@@ -272,6 +272,20 @@
   form textarea{min-height:100px;resize:vertical;}
   form button{margin-top:10px;align-self:flex-start;}
 
+  /* ---------- newsletter ---------- */
+  .newsletter{background:var(--cream, var(--ivory));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0;}
+  .newsletter-inner{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+  .newsletter-inner h2{font-size:clamp(1.5rem,2.6vw,2rem);}
+  .newsletter-inner p{margin-top:8px;color:var(--ink-soft);font-size:0.98rem;max-width:42ch;}
+  .newsletter-form{display:flex;gap:12px;flex:0 0 auto;flex-wrap:wrap;}
+  .newsletter-form input[type="email"]{
+    background:transparent;border:none;border-bottom:1px solid var(--line);padding:12px 4px;
+    font-family:'Jost';font-size:0.98rem;color:var(--ink);min-width:240px;
+  }
+  .newsletter-form input[type="email"]:focus{outline:none;border-color:var(--brass);}
+  .newsletter-form .btn{white-space:nowrap;}
+  @media(max-width:640px){.newsletter-form{width:100%;}.newsletter-form input[type="email"]{flex:1;min-width:0;}}
+
   /* ---------- footer ---------- */
   footer{background:var(--espresso);border-top:1px solid var(--line);padding:40px 0;}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
@@ -476,6 +490,21 @@
   </div>
 </section>
 
+<section id="newsletter" class="newsletter">
+  <div class="wrap newsletter-inner reveal">
+    <div>
+      <h2>Be first to know</h2>
+      <p>New pieces don't get posted until they're ready — join the list to hear about arrivals before anyone else.</p>
+    </div>
+    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field-news" id="newsletterForm" class="newsletter-form">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field-news"></label></p>
+      <input type="email" name="email" id="newsletterEmail" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn-primary">Notify me</button>
+    </form>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <p>© 2026 Haul &amp; Heir. Toronto, ON, Canada</p>
@@ -561,6 +590,25 @@
     });
   }, {threshold:0});
   ctaObserver.observe(heroEl);
+
+  // Submits the newsletter signup to Netlify Forms (separate form from the enquiry one).
+  const newsletterForm = document.getElementById('newsletterForm');
+  newsletterForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(newsletterForm);
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      newsletterForm.reset();
+      alert('You\'re on the list — we\'ll email you when new pieces arrive.');
+    })
+    .catch(() => {
+      alert('Something went wrong — please try again in a moment.');
+    });
+  });
 
   // Submits to Netlify Forms via fetch so the page doesn't reload.
   // If you're NOT hosting on Netlify, swap this form to use Formspree instead:
