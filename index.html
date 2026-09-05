@@ -55,11 +55,8 @@
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:84px;}
   .logo{display:flex;align-items:center;gap:12px;}
-  .logo-mark{
-    width:38px;height:38px;border:1px solid var(--brass);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;color:var(--brass);
-    font-family:'Fraunces';font-size:1rem;font-style:italic;
-  }
+  .logo-mark{width:38px;height:38px;}
+  .logo-mark .lineart{stroke:var(--brass-bright);}
   .logo-text{color:var(--ivory);font-family:'Fraunces';font-size:1.28rem;font-weight:440;}
   .nav-links{display:flex;gap:40px;align-items:center;}
   .nav-links a{color:var(--ivory-dim);font-size:0.9rem;font-weight:300;letter-spacing:0.01em;transition:color .2s;position:relative;padding-bottom:2px;}
@@ -306,6 +303,7 @@
   footer{background:var(--espresso);border-top:1px solid var(--line);padding:40px 0;}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
   footer p{color:rgba(243,237,225,0.45);font-size:0.84rem;}
+  .footer-tagline{display:inline-block;margin-top:4px;color:var(--brass-bright);font-size:0.72rem;letter-spacing:0.06em;}
   footer .flinks{display:flex;gap:24px;}
   footer .flinks a{color:rgba(243,237,225,0.55);font-size:0.84rem;}
   footer .flinks a:hover{color:var(--brass-bright);}
@@ -322,7 +320,13 @@
 <header>
   <div class="wrap nav">
     <a href="#top" class="logo">
-      <span class="logo-mark">H&amp;H</span>
+      <svg class="logo-mark" viewBox="0 0 60 60" role="img" aria-label="Haul and Heir crest">
+        <path class="lineart" d="M15 8 L15 30 Q15 44 30 49 Q45 44 45 30 L45 8 Q37 14 30 8 Q23 14 15 8 Z" fill="none"/>
+        <path class="lineart" d="M19 12 L19 29 Q19 40 30 44 Q41 40 41 29 L41 12 Q35 17 30 12 Q25 17 19 12 Z" fill="none" stroke="var(--brass)"/>
+        <path class="lineart" d="M22 33 Q22 26 28 25 L32 25 Q38 26 38 33 L38.5 40 L21.5 40 Z" fill="none"/>
+        <line class="lineart" x1="24.5" y1="40" x2="24.5" y2="43"/>
+        <line class="lineart" x1="35.5" y1="40" x2="35.5" y2="43"/>
+      </svg>
       <span class="logo-text">Haul &amp; Heir</span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -562,7 +566,7 @@
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Haul &amp; Heir. Toronto, ON, Canada</p>
+    <p>© 2026 Haul &amp; Heir. Toronto, ON, Canada<br><span class="footer-tagline">FINE FURNITURE · WHITE-GLOVE MOVING</span></p>
     <div class="flinks">
       <a href="#collection">The Collection</a>
       <a href="#moving">Moving</a>
