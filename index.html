@@ -387,6 +387,8 @@
     </div>
 
     <div class="pieces-grid reveal-stagger reveal">
+      <!-- STANDARD: every piece card should include a .featured-anchor line with a real, researched
+           comparable-price range (not guessed) — e.g. "Comparable [type] typically sell for $X–$Y." -->
       <div class="piece-card">
         <div class="piece-media" data-images='["images/dining-set-hutch.jpg","images/dining-hutch-2.jpg"]'>
           <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
@@ -416,7 +418,7 @@
           <h3>Italian conference table</h3>
           <p class="tag">High-gloss lacquer finish, chrome-trimmed base</p>
           <p class="featured-desc">This one came out of a business expanding operations — proof that boardroom furniture deserves a second life. The lacquer top is finished deep enough to mirror the room around it: the kind of table a deal gets closed on, or a dinner party gets elevated by.</p>
-          <p class="founder-note">— such a piece would have been let go as it wouldn't have fit in the new office</p>
+          <p class="founder-note">— such a piece would have been let go as it wouldn't have fit in the new office.</p>
           <p class="featured-anchor">Comparable Italian lacquer conference and dining tables typically sell for $2,500–$5,000.</p>
           <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
         </div>
@@ -424,6 +426,21 @@
     </div>
 
     <p class="featured-note" style="margin-top:36px;">New pieces are added as we find them — call or visit to ask what else is currently in the warehouse.</p>
+  </div>
+</section>
+
+<section id="newsletter" class="newsletter">
+  <div class="wrap newsletter-inner reveal">
+    <div>
+      <h2>Be first to know</h2>
+      <p>New pieces don't get posted until they're ready — join the list to hear about arrivals before anyone else.</p>
+    </div>
+    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field-news" id="newsletterForm" class="newsletter-form">
+      <input type="hidden" name="form-name" value="newsletter">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field-news"></label></p>
+      <input type="email" name="email" id="newsletterEmail" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn-primary">Notify me</button>
+    </form>
   </div>
 </section>
 
@@ -540,21 +557,6 @@
         <button type="submit" class="btn btn-primary">Send enquiry</button>
       </form>
     </div>
-  </div>
-</section>
-
-<section id="newsletter" class="newsletter">
-  <div class="wrap newsletter-inner reveal">
-    <div>
-      <h2>Be first to know</h2>
-      <p>New pieces don't get posted until they're ready — join the list to hear about arrivals before anyone else.</p>
-    </div>
-    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field-news" id="newsletterForm" class="newsletter-form">
-      <input type="hidden" name="form-name" value="newsletter">
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field-news"></label></p>
-      <input type="email" name="email" id="newsletterEmail" placeholder="you@email.com" required>
-      <button type="submit" class="btn btn-primary">Notify me</button>
-    </form>
   </div>
 </section>
 
