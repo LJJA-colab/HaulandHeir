@@ -490,9 +490,9 @@
       <h2>Be first to know</h2>
       <p>New pieces don't get posted until they're ready — join the list to hear about arrivals before anyone else.</p>
     </div>
-    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field-news" id="newsletterForm" class="newsletter-form">
-      <input type="hidden" name="form-name" value="newsletter">
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field-news"></label></p>
+    <form action="https://formspree.io/f/xyeydkqk" method="POST" id="newsletterForm" class="newsletter-form">
+      <input type="hidden" name="_subject" value="New arrivals list signup — Haul & Heir">
+      <input type="hidden" name="form_type" value="Newsletter signup">
       <input type="email" name="email" id="newsletterEmail" placeholder="you@email.com" required>
       <button type="submit" class="btn btn-primary">Notify me</button>
     </form>
@@ -604,9 +604,8 @@
       </dl>
     </div>
     <div>
-      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="enquiryForm">
-        <input type="hidden" name="form-name" value="enquiry">
-        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <form action="https://formspree.io/f/maeydqgw" method="POST" id="enquiryForm">
+        <input type="hidden" name="_subject" value="New enquiry — Haul & Heir">
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" type="text" required>
@@ -754,40 +753,44 @@
   }, {threshold:0});
   ctaObserver.observe(heroEl);
 
-  // Submits the newsletter signup to Netlify Forms (separate form from the enquiry one).
+  // Submits the newsletter signup to Formspree without reloading the page.
   const newsletterForm = document.getElementById('newsletterForm');
   newsletterForm.addEventListener('submit', function(e){
     e.preventDefault();
-    const data = new FormData(newsletterForm);
-    fetch('/', {
+    fetch(newsletterForm.action, {
       method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(data).toString()
+      headers: {'Accept': 'application/json'},
+      body: new FormData(newsletterForm)
     })
-    .then(() => {
-      newsletterForm.reset();
-      alert('You\'re on the list — we\'ll email you when new pieces arrive.');
+    .then((response) => {
+      if (response.ok){
+        newsletterForm.reset();
+        alert('You\'re on the list — we\'ll email you when new pieces arrive.');
+      } else {
+        alert('Something went wrong — please try again in a moment.');
+      }
     })
     .catch(() => {
       alert('Something went wrong — please try again in a moment.');
     });
   });
 
-  // Submits to Netlify Forms via fetch so the page doesn't reload.
-  // If you're NOT hosting on Netlify, swap this form to use Formspree instead:
-  // <form action="https://formspree.io/f/yourFormID" method="POST"> and remove the fetch below.
+  // Submits the enquiry form to Formspree without reloading the page.
   const enquiryForm = document.getElementById('enquiryForm');
   enquiryForm.addEventListener('submit', function(e){
     e.preventDefault();
-    const data = new FormData(enquiryForm);
-    fetch('/', {
+    fetch(enquiryForm.action, {
       method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(data).toString()
+      headers: {'Accept': 'application/json'},
+      body: new FormData(enquiryForm)
     })
-    .then(() => {
-      enquiryForm.reset();
-      alert('Thank you — we\'ll be in touch shortly.');
+    .then((response) => {
+      if (response.ok){
+        enquiryForm.reset();
+        alert('Thank you — we\'ll be in touch shortly.');
+      } else {
+        alert('Something went wrong — please call or email us directly.');
+      }
     })
     .catch(() => {
       alert('Something went wrong — please call or email us directly.');
