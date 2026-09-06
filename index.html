@@ -160,6 +160,35 @@
   .section-dark .kicker-block h2{color:var(--ivory);}
   .section-dark .kicker-block p{color:rgba(243,237,225,0.65);}
 
+  /* ---------- shop the room ---------- */
+  .shop-room{position:relative;margin-bottom:56px;line-height:0;overflow:visible;}
+  .shop-room-img{width:100%;display:block;}
+  .hotspot{
+    position:absolute;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;
+    background:#fff;border:none;color:#1c1410;font-size:1rem;line-height:1;
+    cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.3);transition:background .2s ease, transform .2s ease;
+    z-index:2;
+  }
+  .hotspot:hover{background:var(--brass);color:#fff;}
+  .hotspot.active{transform:translate(-50%,-50%) rotate(45deg);background:var(--brass);color:#fff;}
+  .hotspot-card{
+    display:none;position:absolute;z-index:5;background:#fff;border-radius:1px;padding:18px 20px;
+    width:200px;box-shadow:0 8px 24px rgba(0,0,0,0.18);top:50%;transform:translateY(-50%);
+  }
+  .hotspot-card.open{display:block;}
+  .hotspot-card.anchor-right{left:20px;}
+  .hotspot-card.anchor-left{right:20px;}
+  .hotspot-title{font-family:'Fraunces';font-size:0.98rem;color:var(--ink);font-weight:460;line-height:1.3;}
+  .hotspot-sub{font-size:0.8rem;color:var(--ink-soft);margin-top:4px;}
+  .hotspot-link{display:inline-block;margin-top:10px;font-size:0.8rem;color:var(--brass);
+    border-bottom:1px solid var(--brass);padding-bottom:1px;}
+  .hotspot-link:hover{color:var(--burgundy);border-color:var(--burgundy);}
+  @media(max-width:640px){
+    .hotspot-card{width:150px;padding:12px 14px;}
+    .hotspot-title{font-size:0.86rem;}
+    .hotspot-sub{font-size:0.74rem;}
+  }
+
   /* ---------- pieces grid ---------- */
   .pieces-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
   @media(max-width:860px){.pieces-grid{grid-template-columns:1fr;gap:44px;}}
@@ -193,6 +222,17 @@
   .piece-media[data-images] .carousel-dots{display:flex;}
   .carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(243,237,225,0.5);border:1px solid var(--espresso);}
   .carousel-dots span.active{background:var(--brass);}
+
+  /* ---------- trust strip ---------- */
+  #trust-strip{padding:56px 0;background:var(--cream, var(--ivory));border-bottom:1px solid var(--line);}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  @media(max-width:860px){.trust-grid{grid-template-columns:1fr 1fr;row-gap:32px;}}
+  @media(max-width:480px){.trust-grid{grid-template-columns:1fr;}}
+  .trust-tile{display:block;text-align:left;padding-right:8px;border-left:2px solid var(--line);padding-left:16px;transition:border-color .2s ease;}
+  .trust-tile:hover{border-left-color:var(--brass);}
+  .trust-title{font-family:'Fraunces';font-size:1.02rem;font-weight:460;color:var(--ink);margin-bottom:6px;transition:color .2s ease;}
+  .trust-tile:hover .trust-title{color:var(--brass);}
+  .trust-tile p{font-size:0.86rem;color:var(--ink-soft);line-height:1.55;}
 
   /* ---------- collection grid ---------- */
   .collection-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -267,6 +307,13 @@
   .about p+p{margin-top:14px;}
   .founders-figure{background:var(--walnut);padding:40px;position:relative;}
 
+  /* ---------- custom sourcing banner ---------- */
+  #custom-sourcing{background:var(--walnut);}
+  .sourcing-banner{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
+  .sourcing-banner h2{color:var(--ivory);font-size:clamp(1.6rem,2.8vw,2.1rem);}
+  .sourcing-banner p{color:rgba(243,237,225,0.7);margin-top:10px;max-width:52ch;font-size:0.98rem;}
+  .sourcing-banner .btn{flex:0 0 auto;}
+
   /* ---------- reserve / visit ---------- */
   .visit{background:var(--espresso);color:var(--ivory);}
   .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
@@ -300,13 +347,20 @@
   @media(max-width:640px){.newsletter-form{width:100%;}.newsletter-form input[type="email"]{flex:1;min-width:0;}}
 
   /* ---------- footer ---------- */
-  footer{background:var(--espresso);border-top:1px solid var(--line);padding:40px 0;}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-  footer p{color:rgba(243,237,225,0.45);font-size:0.84rem;}
-  .footer-tagline{display:inline-block;margin-top:4px;color:var(--brass-bright);font-size:0.72rem;letter-spacing:0.06em;}
-  footer .flinks{display:flex;gap:24px;}
-  footer .flinks a{color:rgba(243,237,225,0.55);font-size:0.84rem;}
-  footer .flinks a:hover{color:var(--brass-bright);}
+  footer{background:var(--espresso);border-top:1px solid var(--line);padding:56px 0 0;}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+  @media(max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;row-gap:32px;}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+  .footer-brand .logo-mark{width:32px;height:32px;}
+  .footer-brand .logo-text{color:var(--ivory);font-family:'Fraunces';font-size:1.1rem;font-weight:440;}
+  .footer-blurb{color:rgba(243,237,225,0.5);font-size:0.85rem;line-height:1.6;max-width:32ch;}
+  .footer-col .footer-heading{color:var(--brass-bright);font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;}
+  .footer-col{display:flex;flex-direction:column;gap:10px;}
+  .footer-col a{color:rgba(243,237,225,0.6);font-size:0.86rem;}
+  .footer-col a:hover{color:var(--brass-bright);}
+  .footer-bottom{border-top:1px solid var(--line);padding:22px 0;}
+  .footer-bottom p{color:rgba(243,237,225,0.4);font-size:0.8rem;}
+  .footer-tagline{display:inline-block;margin-top:4px;color:var(--brass-bright);font-size:0.7rem;letter-spacing:0.06em;}
   .social-links{display:flex;gap:16px;}
   .social-links a{color:rgba(243,237,225,0.55);transition:color .2s ease;}
   .social-links a:hover{color:var(--brass-bright);}
@@ -382,12 +436,57 @@
   </div>
 </div>
 
+<section id="trust-strip">
+  <div class="wrap trust-grid reveal">
+    <a href="#about" class="trust-tile">
+      <div class="trust-title">Sourced Honestly</div>
+      <p>Every piece has a real, disclosed origin — no invented provenance, ever.</p>
+    </a>
+    <a href="#moving" class="trust-tile">
+      <div class="trust-title">White-Glove Care</div>
+      <p>The same crew restores your furniture and handles your move — nothing subcontracted.</p>
+    </a>
+    <a href="#visit" class="trust-tile">
+      <div class="trust-title">By Appointment</div>
+      <p>A private showroom, not a walk-in warehouse — every visit is unhurried.</p>
+    </a>
+    <a href="#collection" class="trust-tile">
+      <div class="trust-title">One of a Kind</div>
+      <p>Once a piece sells, that exact one is gone — nothing here is mass-produced.</p>
+    </a>
+  </div>
+</section>
+
 <section id="collection">
   <div class="wrap">
     <div class="kicker-block reveal">
       <div class="rule" style="background:var(--brass)"></div>
       <h2>The current collection</h2>
       <p>Each piece is sourced privately — estate sales, closing homes, expanding businesses, select consignment — then restored by hand. Reserve a piece by phone or in person; pieces are not held online.</p>
+    </div>
+
+    <div class="shop-room reveal">
+      <img src="images/dining-set-hutch.jpg" alt="Dining room with oak table, chairs, and hutch" class="shop-room-img">
+
+      <button class="hotspot" style="left:62%; top:24%;" onclick="toggleHotspot(this, 'hs-hutch')" aria-label="Hutch info">+</button>
+      <button class="hotspot" style="left:48%; top:66%;" onclick="toggleHotspot(this, 'hs-table')" aria-label="Table info">+</button>
+      <button class="hotspot" style="left:18%; top:56%;" onclick="toggleHotspot(this, 'hs-chairs')" aria-label="Chairs info">+</button>
+
+      <div class="hotspot-card anchor-left" id="hs-hutch" style="left:calc(62% - 220px); top:24%;">
+        <div class="hotspot-title">Matching China Hutch</div>
+        <div class="hotspot-sub">Part of the dining set</div>
+        <a href="#visit" class="hotspot-link">Enquire</a>
+      </div>
+      <div class="hotspot-card anchor-right" id="hs-table" style="left:calc(48% + 20px); top:66%;">
+        <div class="hotspot-title">Solid Oak Dining Table</div>
+        <div class="hotspot-sub">Eight-seat, extends for guests</div>
+        <a href="#visit" class="hotspot-link">Enquire</a>
+      </div>
+      <div class="hotspot-card anchor-right" id="hs-chairs" style="left:calc(18% + 20px); top:56%;">
+        <div class="hotspot-title">Upholstered Dining Chairs</div>
+        <div class="hotspot-sub">Set of six, striped upholstery</div>
+        <a href="#visit" class="hotspot-link">Enquire</a>
+      </div>
     </div>
 
     <div class="pieces-grid reveal-stagger reveal">
@@ -530,6 +629,16 @@
   </div>
 </section>
 
+<section id="custom-sourcing">
+  <div class="wrap sourcing-banner reveal">
+    <div>
+      <h2>Looking for something specific?</h2>
+      <p>We source privately through estate sales, closing businesses, and consignment — if there's a particular piece or style you're after, tell us and we'll keep an eye out as it comes through.</p>
+    </div>
+    <a href="#visit" class="btn btn-primary">Tell us what you're looking for</a>
+  </div>
+</section>
+
 <section class="visit" id="visit">
   <div class="wrap visit-grid reveal">
     <div>
@@ -565,21 +674,51 @@
 </section>
 
 <footer>
-  <div class="wrap">
-    <p>© 2026 Haul &amp; Heir. Toronto, ON, Canada<br><span class="footer-tagline">FINE FURNITURE · WHITE-GLOVE MOVING</span></p>
-    <div class="flinks">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <div class="logo" style="margin-bottom:14px;">
+        <svg class="logo-mark" viewBox="0 0 60 60" role="img" aria-label="Haul and Heir crest">
+          <path class="lineart" d="M15 8 L15 30 Q15 44 30 49 Q45 44 45 30 L45 8 Q37 14 30 8 Q23 14 15 8 Z" fill="none"/>
+          <path class="lineart" d="M19 12 L19 29 Q19 40 30 44 Q41 40 41 29 L41 12 Q35 17 30 12 Q25 17 19 12 Z" fill="none" stroke="var(--brass)"/>
+        </svg>
+        <span class="logo-text">Haul &amp; Heir</span>
+      </div>
+      <p class="footer-blurb">Fine furniture, sourced privately and restored by hand. White-glove moving for everything else. By appointment, Toronto &amp; the GTA.</p>
+      <div class="social-links" style="margin-top:16px;">
+        <a href="https://instagram.com/haulandheir" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://facebook.com/haulandheir" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.57 14.2 3.57c-2.4 0-4.05 1.47-4.05 4.16v2.16H7.5v3.1h2.65V21h3.35z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">About</div>
+      <a href="#about">The House</a>
       <a href="#collection">The Collection</a>
       <a href="#moving">Moving</a>
-      <a href="#visit">Visit</a>
+      <a href="#service-area">Areas Served</a>
     </div>
-    <div class="social-links">
-      <a href="https://instagram.com/haulandheir" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
-      </a>
-      <a href="https://facebook.com/haulandheir" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.57 14.2 3.57c-2.4 0-4.05 1.47-4.05 4.16v2.16H7.5v3.1h2.65V21h3.35z"/></svg>
-      </a>
+
+    <div class="footer-col">
+      <div class="footer-heading">Visit</div>
+      <a href="#visit">Showroom &amp; Contact</a>
+      <a href="tel:6475093577">(647) 509-3577</a>
+      <a href="mailto:haulandheir@gmail.com">haulandheir@gmail.com</a>
     </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">Connect</div>
+      <a href="https://instagram.com/haulandheir" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/haulandheir" target="_blank" rel="noopener">Facebook</a>
+      <a href="#newsletter">Join the list</a>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>© 2026 Haul &amp; Heir. Toronto, ON, Canada<br><span class="footer-tagline">FINE FURNITURE · WHITE-GLOVE MOVING</span></p>
   </div>
 </footer>
 
@@ -597,6 +736,23 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 
+  // Shop-the-room hotspots: click a "+" marker to show that item's info card.
+  function toggleHotspot(btn, cardId){
+    const card = document.getElementById(cardId);
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.hotspot-card.open').forEach(c => c.classList.remove('open'));
+    document.querySelectorAll('.hotspot.active').forEach(h => h.classList.remove('active'));
+    if (!isOpen){
+      card.classList.add('open');
+      btn.classList.add('active');
+    }
+  }
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.shop-room')){
+      document.querySelectorAll('.hotspot-card.open').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.hotspot.active').forEach(h => h.classList.remove('active'));
+    }
+  });
   // Lightbox for tapping/clicking a real product photo to view it larger.
   function openLightbox(src, alt){
     const lb = document.getElementById('lightbox');
