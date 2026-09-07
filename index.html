@@ -143,6 +143,13 @@
 
   /* ---------- hero tilt ---------- */
   .hero-art{transition:transform .15s ease-out;transform-style:preserve-3d;}
+  .hero-media{position:relative;padding:16px;}
+  .hero-media img.hero-art{width:100%;display:block;border-radius:2px;aspect-ratio:4/4.2;object-fit:cover;}
+  .hero-media .corner{position:absolute;width:28px;height:28px;border:2px solid var(--brass);z-index:2;}
+  .hero-media .corner.tl{top:0;left:0;border-right:none;border-bottom:none;}
+  .hero-media .corner.tr{top:0;right:0;border-left:none;border-bottom:none;}
+  .hero-media .corner.bl{bottom:0;left:0;border-right:none;border-top:none;}
+  .hero-media .corner.br{bottom:0;right:0;border-left:none;border-top:none;}
 
   /* ---------- sticky mobile cta ---------- */
   .mobile-cta{
@@ -292,11 +299,11 @@
   .about h2{font-size:clamp(1.9rem,3.4vw,2.5rem);}
   .about p{margin-top:18px;color:var(--ink-soft);font-size:1.03rem;max-width:56ch;}
   .about p+p{margin-top:14px;}
-  .founders-figure{
-    background:linear-gradient(rgba(28,20,16,0.6), rgba(28,20,16,0.68)), url('images/about-bg.jpg');
-    background-size:cover;background-position:center;
-    padding:40px;position:relative;border-radius:2px;
-  }
+  .founders-figure{position:relative;padding:16px;}
+  .founders-figure::before,.founders-figure::after{content:"";position:absolute;width:28px;height:28px;border:2px solid var(--brass);z-index:2;}
+  .founders-figure::before{top:0;left:0;border-right:none;border-bottom:none;}
+  .founders-figure::after{bottom:0;right:0;border-left:none;border-top:none;}
+  .founders-photo{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;border-radius:2px;}
 
   /* ---------- custom sourcing banner ---------- */
   #custom-sourcing{background:var(--walnut);}
@@ -402,20 +409,9 @@
         <div><b>By appointment</b></div>
       </div>
     </div>
-    <div>
-      <svg class="hero-art" id="heroArt" viewBox="0 0 400 420" role="img" aria-label="Line illustration of a wingback armchair">
-        <ellipse cx="200" cy="392" rx="120" ry="10" fill="var(--brass)" opacity="0.12"/>
-        <path class="lineart lineart-fill" d="M110 130 Q108 76 160 66 L240 66 Q292 76 290 130 L296 240 L104 240 Z"/>
-        <path class="lineart" d="M104 240 L296 240" />
-        <rect class="lineart lineart-fill" x="96" y="240" width="208" height="66" rx="6"/>
-        <path class="lineart" d="M70 190 Q54 190 54 220 L54 268 Q54 296 84 296 L110 296 L110 236 Q110 208 132 200" />
-        <path class="lineart" d="M330 190 Q346 190 346 220 L346 268 Q346 296 316 296 L290 296 L290 236 Q290 208 268 200" />
-        <line class="lineart" x1="98" y1="296" x2="98" y2="378"/>
-        <line class="lineart" x1="122" y1="306" x2="122" y2="378"/>
-        <line class="lineart" x1="278" y1="306" x2="278" y2="378"/>
-        <line class="lineart" x1="302" y1="296" x2="302" y2="378"/>
-        <path class="lineart" d="M150 90 L150 235 M250 90 L250 235" opacity="0.5"/>
-      </svg>
+    <div class="hero-media">
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+      <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" class="hero-art" id="heroArt">
     </div>
   </div>
 </section>
@@ -567,33 +563,7 @@
 <section id="about">
   <div class="wrap about reveal">
     <div class="founders-figure">
-      <svg viewBox="0 0 340 240" role="img" aria-label="Line illustration of a wooden shipping crate with a strap and tag, beside a restored armchair">
-        <ellipse cx="175" cy="222" rx="150" ry="9" fill="var(--brass)" opacity="0.12"/>
-
-        <!-- hanging tag + string -->
-        <line class="lineart" x1="40" y1="106" x2="18" y2="58"/>
-        <rect class="lineart lineart-fill" x="4" y="40" width="32" height="20" rx="3" transform="rotate(-18 20 50)"/>
-        <text x="14" y="54" transform="rotate(-18 20 50)" font-family="Fraunces" font-style="italic" font-size="10" fill="var(--brass-bright)">H&amp;H</text>
-
-        <!-- crate: isometric box -->
-        <path class="lineart lineart-fill" d="M40 110 L140 110 L140 210 L40 210 Z"/>
-        <path class="lineart lineart-fill" d="M40 110 L75 80 L175 80 L140 110 Z"/>
-        <path class="lineart lineart-fill" d="M140 110 L175 80 L175 180 L140 210 Z"/>
-        <line class="lineart" x1="40" y1="110" x2="140" y2="210"/>
-        <line class="lineart" x1="140" y1="110" x2="40" y2="210"/>
-        <rect x="36" y="106" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
-        <rect x="134" y="106" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
-        <rect x="36" y="204" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
-        <rect x="134" y="204" width="10" height="10" fill="var(--brass)" opacity="0.75"/>
-
-        <!-- restored armchair beside the crate -->
-        <path class="lineart lineart-fill" d="M212 100 Q212 78 232 76 L272 76 Q292 78 292 100 L294 160 L210 160 Z"/>
-        <rect class="lineart lineart-fill" x="205" y="160" width="96" height="26" rx="5"/>
-        <path class="lineart" d="M196 132 Q186 132 186 152 L186 178 Q186 196 204 196 L218 196 L218 158 Q218 140 232 136 L218 132 Z"/>
-        <path class="lineart" d="M310 132 Q320 132 320 152 L320 178 Q320 196 302 196 L288 196 L288 158 Q288 140 274 136 L288 132 Z"/>
-        <line class="lineart" x1="216" y1="196" x2="216" y2="216"/>
-        <line class="lineart" x1="290" y1="196" x2="290" y2="216"/>
-      </svg>
+      <img src="images/italian-conference-table.jpg" alt="Italian conference table, high-gloss finish" class="founders-photo">
     </div>
     <div>
       <div class="rule" style="background:var(--brass);margin-bottom:20px;"></div>
