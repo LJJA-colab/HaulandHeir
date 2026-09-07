@@ -219,16 +219,17 @@
   .carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(243,237,225,0.5);border:1px solid var(--espresso);}
   .carousel-dots span.active{background:var(--brass);}
 
+  /* ---------- pillars ---------- */
+  #pillars{background:var(--ivory);padding:88px 0;border-bottom:1px solid var(--line);}
+  .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
+  @media(max-width:860px){.pillars-grid{grid-template-columns:1fr 1fr;row-gap:44px;}}
+  @media(max-width:480px){.pillars-grid{grid-template-columns:1fr;}}
+  .pillar-num{font-family:'Fraunces';font-style:italic;font-size:1.3rem;color:var(--brass);margin-bottom:14px;}
+  .pillar h3{font-size:1.15rem;font-weight:460;color:var(--ink);margin-bottom:10px;}
+  .pillar p{font-size:0.92rem;color:var(--ink-soft);line-height:1.6;}
+
   /* ---------- trust strip ---------- */
-  #trust-strip{padding:56px 0;background:var(--cream, var(--ivory));border-bottom:1px solid var(--line);}
-  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
-  @media(max-width:860px){.trust-grid{grid-template-columns:1fr 1fr;row-gap:32px;}}
-  @media(max-width:480px){.trust-grid{grid-template-columns:1fr;}}
-  .trust-tile{display:block;text-align:left;padding-right:8px;border-left:2px solid var(--line);padding-left:16px;transition:border-color .2s ease;}
-  .trust-tile:hover{border-left-color:var(--brass);}
-  .trust-title{font-family:'Fraunces';font-size:1.02rem;font-weight:460;color:var(--ink);margin-bottom:6px;transition:color .2s ease;}
-  .trust-tile:hover .trust-title{color:var(--brass);}
-  .trust-tile p{font-size:0.86rem;color:var(--ink-soft);line-height:1.55;}
+
 
   /* ---------- collection grid ---------- */
   .collection-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
@@ -438,24 +439,28 @@
   </div>
 </div>
 
-<section id="trust-strip">
-  <div class="wrap trust-grid reveal">
-    <a href="#about" class="trust-tile">
-      <div class="trust-title">Sourced Honestly</div>
-      <p>Every piece has a real, disclosed origin — no invented provenance, ever.</p>
-    </a>
-    <a href="#moving" class="trust-tile">
-      <div class="trust-title">White-Glove Care</div>
-      <p>The same crew restores your furniture and handles your move — nothing subcontracted.</p>
-    </a>
-    <a href="#visit" class="trust-tile">
-      <div class="trust-title">By Appointment</div>
-      <p>A private showroom, not a walk-in warehouse — every visit is unhurried.</p>
-    </a>
-    <a href="#collection" class="trust-tile">
-      <div class="trust-title">One of a Kind</div>
-      <p>Once a piece sells, that exact one is gone — nothing here is mass-produced.</p>
-    </a>
+<section id="pillars">
+  <div class="wrap pillars-grid reveal">
+    <div class="pillar">
+      <div class="pillar-num">I.</div>
+      <h3>Source</h3>
+      <p>We look where showrooms don't — estates, closing offices, family homes letting go of something well-made. Every piece starts with a real story, not a catalog number.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">II.</div>
+      <h3>Restore</h3>
+      <p>Every piece meets one standard before it goes on the floor: would we keep it ourselves. Joinery repaired, hardware cleaned, finish brought back — nothing papered over.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">III.</div>
+      <h3>Move</h3>
+      <p>The same crew that restores the collection handles your move. Padded, crated, and placed exactly where you want it — never handed off to a subcontractor.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">IV.</div>
+      <h3>Access</h3>
+      <p>New pieces don't get posted publicly until the list has had first look — by appointment, by referral, and soon, by invitation.</p>
+    </div>
   </div>
 </section>
 
