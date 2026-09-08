@@ -4,28 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1c1410">
-<link rel="icon" href="images/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<meta name="description" content="Haul & Heir — fine restored furniture and white-glove moving in Toronto & the GTA. By appointment. Sourced privately, restored by hand, moved with care.">
-<meta property="og:title" content="Haul & Heir — Fine Furniture & White-Glove Moving">
-<meta property="og:description" content="Restored fine furniture and white-glove moving in Toronto & the GTA. By appointment only.">
+<meta name="description" content="Heathwood — hand-selected, quality furniture in Toronto & the GTA. By appointment.">
+<meta property="og:title" content="Heathwood — Fine Furniture">
+<meta property="og:description" content="Hand-selected, quality furniture in Toronto & the GTA. By appointment only.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/dining-set-hutch.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Haul & Heir — Fine Furniture & White-Glove Moving">
-<meta name="twitter:description" content="Restored fine furniture and white-glove moving in Toronto & the GTA. By appointment only.">
-<meta name="twitter:image" content="images/dining-set-hutch.jpg">
-<title>Haul & Heir — Fine Furniture &amp; White-Glove Moving</title>
+<title>Heathwood — Fine Furniture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,340;9..144,440;9..144,600;9..144,600,1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --espresso:#1c1410;
     --walnut:#2b1d14;
-    --walnut-light:#3d2a1c;
     --brass:#b08d57;
     --brass-bright:#cba86e;
     --ivory:#f3ede1;
@@ -37,275 +26,98 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    font-family:'Jost',sans-serif;
-    font-weight:300;
-    color:var(--ink);
-    background:var(--ivory);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:440;letter-spacing:-0.005em;}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);background:var(--ivory);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:440;letter-spacing:-0.005em;}
   a{color:inherit;text-decoration:none;}
   img,svg{display:block;max-width:100%;}
   .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
   @media(max-width:640px){.wrap{padding:0 20px;}}
   .rule{width:44px;height:1px;background:var(--brass);}
+  section{padding:104px 0;scroll-margin-top:96px;}
+  @media(max-width:640px){section{padding:68px 0;}}
 
-  /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:var(--espresso);
-    border-bottom:1px solid var(--line);
-  }
+  header{position:sticky;top:0;z-index:50;background:var(--espresso);border-bottom:1px solid var(--line);}
   .nav{display:flex;align-items:center;justify-content:space-between;height:84px;}
-  .logo{display:flex;align-items:center;gap:12px;}
-  .logo-mark{width:38px;height:38px;}
-  .logo-mark .lineart{stroke:var(--brass-bright);}
-  .logo-text{color:var(--ivory);font-family:'Fraunces';font-size:1.28rem;font-weight:440;}
+  .logo-text{color:var(--ivory);font-family:'Fraunces';font-style:italic;font-size:1.4rem;font-weight:460;}
   .nav-links{display:flex;gap:40px;align-items:center;}
-  .nav-links a{color:var(--ivory-dim);font-size:0.9rem;font-weight:300;letter-spacing:0.01em;transition:color .2s;position:relative;padding-bottom:2px;}
-  .nav-links a:not(.nav-cta)::after{
-    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass-bright);
-    transition:width .25s ease;
-  }
+  .nav-links a{color:var(--ivory-dim);font-size:0.9rem;position:relative;padding-bottom:2px;transition:color .2s;}
+  .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass-bright);transition:width .25s ease;}
   .nav-links a:not(.nav-cta):hover::after{width:100%;}
   .nav-links a:hover{color:var(--brass-bright);}
-  .nav-cta{
-    border:1px solid var(--brass);color:var(--brass-bright)!important;padding:10px 22px;border-radius:1px;
-  }
+  .nav-cta{border:1px solid var(--brass);color:var(--brass-bright)!important;padding:10px 22px;border-radius:1px;}
   .nav-cta:hover{background:var(--brass);color:var(--espresso)!important;}
   .nav-toggle{display:none;background:none;border:none;color:var(--ivory);font-size:1.6rem;cursor:pointer;}
   @media(max-width:840px){
-    .nav-links{position:absolute;top:84px;left:0;right:0;background:var(--espresso);flex-direction:column;
-      align-items:flex-start;padding:8px 20px 26px;gap:18px;display:none;border-bottom:1px solid var(--line);}
+    .nav-links{position:absolute;top:84px;left:0;right:0;background:var(--espresso);flex-direction:column;align-items:flex-start;padding:8px 20px 26px;gap:18px;display:none;border-bottom:1px solid var(--line);}
     .nav-links.open{display:flex;}
     .nav-toggle{display:block;}
   }
 
-  /* ---------- hero ---------- */
   .hero{background:var(--espresso);color:var(--ivory);position:relative;overflow:hidden;}
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background:radial-gradient(ellipse 900px 500px at 78% 20%, rgba(176,141,87,0.13), transparent 60%);
-  }
-  .hero .wrap{
-    display:grid;grid-template-columns:1fr 0.82fr;gap:60px;align-items:center;
-    padding-top:104px;padding-bottom:110px;position:relative;z-index:1;
-  }
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 900px 500px at 78% 20%, rgba(176,141,87,0.13), transparent 60%);}
+  .hero .wrap{display:grid;grid-template-columns:1fr 0.82fr;gap:60px;align-items:center;padding-top:104px;padding-bottom:110px;position:relative;z-index:1;}
   @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-top:64px;padding-bottom:64px;}}
   .eyebrow-mark{display:flex;align-items:center;gap:14px;margin-bottom:26px;color:var(--brass-bright);font-size:0.82rem;letter-spacing:0.04em;}
   .hero h1{font-size:clamp(2.7rem,5.2vw,4rem);line-height:1.08;color:var(--ivory);}
   .hero h1 em{font-style:italic;color:var(--brass-bright);font-weight:340;}
-  .hero p.lede{margin-top:24px;font-size:1.1rem;color:rgba(243,237,225,0.72);max-width:44ch;font-weight:300;}
+  .hero p.lede{margin-top:24px;font-size:1.1rem;color:rgba(243,237,225,0.72);max-width:44ch;}
   .cta-row{display:flex;gap:18px;margin-top:36px;flex-wrap:wrap;}
-  .btn{
-    display:inline-block;padding:15px 28px;border-radius:1px;font-weight:400;font-size:0.94rem;
-    border:1px solid transparent;cursor:pointer;letter-spacing:0.01em;
-  }
+  .btn{display:inline-block;padding:15px 28px;border-radius:1px;font-weight:400;font-size:0.94rem;border:1px solid transparent;cursor:pointer;}
   .btn-primary{background:var(--brass);color:var(--espresso);}
   .btn-primary:hover{background:var(--brass-bright);}
   .btn-ghost{border-color:rgba(243,237,225,0.35);color:var(--ivory);}
   .btn-ghost:hover{border-color:var(--brass-bright);color:var(--brass-bright);}
-  .hero-stat{margin-top:50px;padding-top:26px;border-top:1px solid var(--line);
-    display:flex;gap:40px;color:rgba(243,237,225,0.6);font-size:0.86rem;flex-wrap:wrap;}
+  .hero-stat{margin-top:50px;padding-top:26px;border-top:1px solid var(--line);display:flex;gap:40px;color:rgba(243,237,225,0.6);font-size:0.86rem;flex-wrap:wrap;}
   .hero-stat b{display:block;font-family:'Fraunces';font-size:1.4rem;color:var(--ivory);font-weight:440;}
-  @media(max-width:480px){.hero-stat{gap:24px;}.cta-row .btn{flex:1;text-align:center;}}
-
-  /* line-art furniture illustration styling */
-  .lineart{stroke:var(--brass-bright);fill:none;stroke-width:1.4;transition:stroke .3s ease;}
-  .lineart-fill{fill:rgba(176,141,87,0.08);transition:fill .3s ease;}
-
-  /* ---------- ticker ---------- */
-  .ticker{background:var(--walnut);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;}
-  .ticker-track{display:inline-flex;animation:scroll-left 32s linear infinite;}
-  .ticker-track span{color:var(--brass-bright);font-family:'Fraunces';font-style:italic;font-size:0.92rem;
-    letter-spacing:0.02em;padding:0 28px;display:inline-flex;align-items:center;gap:28px;}
-  .ticker-track span::after{content:"◆";font-size:0.6rem;color:var(--brass);opacity:0.5;}
-  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  @media (prefers-reduced-motion: reduce){.ticker-track{animation:none;}}
-
-  /* ---------- scroll reveal ---------- */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.visible{opacity:1;transform:translateY(0);}
-  .reveal-stagger.visible .piece,
-  .reveal-stagger.visible .step{opacity:1;transform:translateY(0);}
-  .reveal-stagger .piece,
-  .reveal-stagger .step{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
-  .reveal-stagger.visible .piece:nth-child(1){transition-delay:.05s;}
-  .reveal-stagger.visible .piece:nth-child(2){transition-delay:.12s;}
-  .reveal-stagger.visible .piece:nth-child(3){transition-delay:.19s;}
-  .reveal-stagger.visible .piece:nth-child(4){transition-delay:.26s;}
-  .reveal-stagger.visible .piece:nth-child(5){transition-delay:.33s;}
-  .reveal-stagger.visible .step:nth-child(1){transition-delay:.05s;}
-  .reveal-stagger.visible .step:nth-child(2){transition-delay:.15s;}
-  .reveal-stagger.visible .step:nth-child(3){transition-delay:.25s;}
-
-  /* ---------- ken burns pan/zoom ---------- */
-  @keyframes kenburns{
-    0%{transform:scale(1) translate(0,0);}
-    100%{transform:scale(1.08) translate(-1%,-1%);}
-  }
-  .kenburns{overflow:hidden;}
-  .kenburns img{animation:kenburns 18s ease-in-out infinite alternate;}
-  @media (prefers-reduced-motion: reduce){.kenburns img{animation:none;}}
-
-  /* ---------- hero tilt ---------- */
-  .hero-art{transition:transform .15s ease-out;transform-style:preserve-3d;}
   .hero-media{position:relative;padding:16px;}
-  .hero-media img.hero-art{width:100%;display:block;border-radius:2px;aspect-ratio:4/4.2;object-fit:cover;}
-  .hero-media .corner{position:absolute;width:28px;height:28px;border:2px solid var(--brass);z-index:2;}
+  .hero-media img{width:100%;display:block;border-radius:2px;aspect-ratio:4/4.2;object-fit:cover;}
+  .hero-media .corner{position:absolute;width:28px;height:28px;border:2px solid var(--brass);}
   .hero-media .corner.tl{top:0;left:0;border-right:none;border-bottom:none;}
   .hero-media .corner.tr{top:0;right:0;border-left:none;border-bottom:none;}
   .hero-media .corner.bl{bottom:0;left:0;border-right:none;border-top:none;}
   .hero-media .corner.br{bottom:0;right:0;border-left:none;border-top:none;}
 
-  /* ---------- sticky mobile cta ---------- */
-  .mobile-cta{
-    display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--espresso);
-    border-top:1px solid var(--line);padding:14px 20px;justify-content:center;
-    transform:translateY(100%);transition:transform .3s ease;
-  }
-  .mobile-cta.show{transform:translateY(0);}
-  .mobile-cta a{width:100%;text-align:center;}
-  @media(max-width:640px){.mobile-cta{display:flex;}footer{padding-bottom:88px;}}
+  .ticker{background:var(--walnut);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;}
+  .ticker-track{display:inline-flex;animation:scroll-left 32s linear infinite;}
+  .ticker-track span{color:var(--brass-bright);font-family:'Fraunces';font-style:italic;font-size:0.92rem;padding:0 28px;display:inline-flex;align-items:center;gap:28px;}
+  .ticker-track span::after{content:"◆";font-size:0.6rem;color:var(--brass);opacity:0.5;}
+  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-  /* ---------- section shells ---------- */
-  section{padding:104px 0;scroll-margin-top:96px;}
-  @media(max-width:640px){section{padding:68px 0;}}
   .kicker-block{max-width:54ch;margin-bottom:58px;}
   .kicker-block .rule{margin-bottom:20px;}
   .kicker-block h2{font-size:clamp(2rem,3.6vw,2.6rem);}
   .kicker-block p{margin-top:16px;color:var(--ink-soft);font-size:1.04rem;}
-  .section-dark{background:var(--espresso);color:var(--ivory);}
-  .section-dark .kicker-block h2{color:var(--ivory);}
-  .section-dark .kicker-block p{color:rgba(243,237,225,0.65);}
 
-  /* ---------- pieces grid ---------- */
+  .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+  @media(max-width:760px){.pillars-grid{grid-template-columns:1fr;gap:36px;}}
+  .pillar-num{font-family:'Fraunces';font-style:italic;font-size:1.3rem;color:var(--brass);margin-bottom:14px;}
+  .pillar h3{font-size:1.15rem;margin-bottom:10px;}
+  .pillar p{font-size:0.92rem;color:var(--ink-soft);line-height:1.6;}
+
   .pieces-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
   @media(max-width:860px){.pieces-grid{grid-template-columns:1fr;gap:44px;}}
   .piece-media{position:relative;padding:18px;}
-  .piece-media .kb-frame{overflow:hidden;display:block;border-radius:1px;}
-  .piece-media .kb-frame img.piece-img{animation:kenburns 20s ease-in-out infinite alternate;}
-  .piece-media img.piece-img{aspect-ratio:4/3;width:100%;object-fit:cover;cursor:zoom-in;}
+  .piece-media img{aspect-ratio:4/3;width:100%;object-fit:cover;cursor:zoom-in;}
   .piece-media .corner{position:absolute;width:26px;height:26px;border:2px solid var(--brass);z-index:2;}
   .piece-media .corner.tl{top:0;left:0;border-right:none;border-bottom:none;}
   .piece-media .corner.tr{top:0;right:0;border-left:none;border-bottom:none;}
   .piece-media .corner.bl{bottom:0;left:0;border-right:none;border-top:none;}
   .piece-media .corner.br{bottom:0;right:0;border-left:none;border-top:none;}
   .piece-card-content h3{font-size:clamp(1.4rem,2.2vw,1.7rem);margin-top:18px;}
-  .piece-card-content .tag{color:var(--ink-soft);font-size:0.9rem;margin-top:6px;letter-spacing:0.01em;}
-  .piece-card-content .featured-desc{margin-top:16px;color:var(--ink-soft);font-size:0.98rem;max-width:48ch;}
+  .piece-card-content .tag{color:var(--ink-soft);font-size:0.9rem;margin-top:6px;}
+  .piece-card-content .desc{margin-top:16px;color:var(--ink-soft);font-size:0.98rem;max-width:48ch;}
   .piece-card-content .founder-note{margin-top:10px;color:var(--ink-soft);font-size:0.86rem;font-style:italic;opacity:0.85;}
-  .piece-card-content .featured-anchor{margin-top:10px;color:var(--brass);font-size:0.88rem;font-style:italic;max-width:48ch;}
+  .piece-card-content .anchor{margin-top:10px;color:var(--brass);font-size:0.88rem;font-style:italic;}
   .piece-card-content .btn{margin-top:22px;}
-  .featured-note{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-soft);
-    font-size:0.88rem;font-style:italic;max-width:60ch;}
 
-  /* carousel controls */
-  .carousel-arrow{
-    display:none;position:absolute;top:50%;transform:translateY(-50%);z-index:3;
-    width:34px;height:34px;border-radius:50%;border:1px solid var(--brass);background:rgba(28,20,16,0.55);
-    color:var(--ivory);font-size:1.1rem;cursor:pointer;align-items:center;justify-content:center;
-  }
-  .piece-media[data-images] .carousel-arrow{display:flex;}
-  .carousel-arrow.prev{left:28px;}
-  .carousel-arrow.next{right:28px;}
-  .carousel-arrow:hover{background:var(--brass);color:var(--espresso);}
-  .carousel-dots{display:none;position:absolute;bottom:28px;left:0;right:0;justify-content:center;gap:8px;z-index:3;}
-  .piece-media[data-images] .carousel-dots{display:flex;}
-  .carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(243,237,225,0.5);border:1px solid var(--espresso);}
-  .carousel-dots span.active{background:var(--brass);}
-
-  /* ---------- pillars ---------- */
-  #pillars{background:var(--ivory);padding:88px 0;border-bottom:1px solid var(--line);}
-  .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
-  @media(max-width:860px){.pillars-grid{grid-template-columns:1fr 1fr;row-gap:44px;}}
-  @media(max-width:480px){.pillars-grid{grid-template-columns:1fr;}}
-  .pillar-num{font-family:'Fraunces';font-style:italic;font-size:1.3rem;color:var(--brass);margin-bottom:14px;}
-  .pillar h3{font-size:1.15rem;font-weight:460;color:var(--ink);margin-bottom:10px;}
-  .pillar p{font-size:0.92rem;color:var(--ink-soft);line-height:1.6;}
-
-  /* ---------- trust strip ---------- */
-
-
-  /* ---------- collection grid ---------- */
-  .collection-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  .piece{
-    background:var(--ivory);padding:34px 30px;display:flex;flex-direction:column;grid-column:span 2;
-    transition:background .35s ease;
-  }
-  .piece:hover{background:#ece3d1;}
-  .piece.big{grid-column:span 3;}
-  @media(max-width:900px){.piece{grid-column:span 3;}.piece.big{grid-column:span 6;}}
-  @media(max-width:600px){.piece,.piece.big{grid-column:span 6;}}
-  .piece .art{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;margin-bottom:22px;overflow:hidden;}
-  .piece .art img{width:100%;height:100%;object-fit:cover;}
-  .piece .art img.clickable-photo{cursor:zoom-in;}
-
-  /* touch-friendly active states (mobile doesn't get :hover) */
-  .btn:active{transform:scale(0.97);}
-  .piece:active{background:#ece3d1;}
-  .nav-cta:active{background:var(--brass);color:var(--espresso)!important;}
-
-  /* ---------- lightbox ---------- */
-  .lightbox{
-    display:none;position:fixed;inset:0;z-index:100;background:rgba(28,20,16,0.94);
-    align-items:center;justify-content:center;padding:24px;
-  }
-  .lightbox.open{display:flex;}
-  .lightbox img{max-width:100%;max-height:90vh;border:1px solid var(--line);}
-  .lightbox-close{
-    position:absolute;top:20px;right:24px;background:none;border:1px solid rgba(243,237,225,0.4);
-    color:var(--ivory);width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .lightbox-close:hover{border-color:var(--brass-bright);color:var(--brass-bright);}
-  .piece .art svg{transition:transform .45s ease;}
-  .piece:hover .art svg{transform:scale(1.06);}
-  .piece:hover .lineart{stroke:var(--burgundy);}
-  .piece:hover .lineart-fill{fill:rgba(74,32,32,0.08);}
-  .piece.big .art{aspect-ratio:16/9;}
-  .piece h3{font-size:1.2rem;font-weight:440;}
-  .piece .tag{color:var(--ink-soft);font-size:0.84rem;margin-top:5px;letter-spacing:0.01em;}
-  .piece .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
-  .piece .row.end{justify-content:flex-end;}
-  .piece .price{font-family:'Fraunces';font-size:1.14rem;color:var(--ink);}
-  .piece .ask{font-size:0.82rem;color:var(--brass);border-bottom:1px solid var(--brass);padding-bottom:1px;}
-  .piece .ask:hover{color:var(--burgundy);border-color:var(--burgundy);}
-
-  /* ---------- moving / white glove ---------- */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
-  @media(max-width:800px){.steps{grid-template-columns:1fr;gap:44px;}}
-  .step{position:relative;padding:0 30px;}
-  .step:first-child{padding-left:0;}
-  .step:last-child{padding-right:0;}
-  .step:not(:last-child){border-right:1px solid var(--line);}
-  @media(max-width:800px){.step:not(:last-child){border-right:none;}}
-  .step .num{font-family:'Fraunces';font-style:italic;font-size:1.5rem;color:var(--brass-bright);margin-bottom:20px;}
-  .step h3{font-size:1.2rem;margin-bottom:12px;color:var(--ivory);}
-  .step p{color:rgba(243,237,225,0.65);font-size:0.98rem;}
-
-  /* ---------- philosophy statement ---------- */
-  #philosophy{
-    position:relative;padding:110px 0;text-align:center;
-    background:linear-gradient(rgba(28,20,16,0.86), rgba(28,20,16,0.9)), url('images/philosophy-bg.jpg');
-    background-size:cover;background-position:center;
-  }
-  .philosophy-inner{max-width:640px;margin:0 auto;position:relative;z-index:1;}
-  .philosophy-statement{font-family:'Fraunces';font-style:italic;font-weight:360;
-    font-size:clamp(1.6rem,3.4vw,2.4rem);color:var(--brass-bright);line-height:1.35;}
+  #philosophy{position:relative;padding:110px 0;text-align:center;background:linear-gradient(rgba(28,20,16,0.86), rgba(28,20,16,0.9)), url('images/philosophy-bg.jpg');background-size:cover;background-position:center;}
+  .philosophy-inner{max-width:640px;margin:0 auto;}
+  .philosophy-statement{font-family:'Fraunces';font-style:italic;font-weight:360;font-size:clamp(1.6rem,3.4vw,2.4rem);color:var(--brass-bright);line-height:1.35;}
   .philosophy-sub{margin-top:20px;color:rgba(243,237,225,0.55);font-size:0.95rem;}
 
-  /* ---------- service area ---------- */
   .area-tags{display:flex;flex-wrap:wrap;gap:12px;}
-  .area-tags span{
-    border:1px solid var(--line);color:var(--ink-soft);font-size:0.9rem;padding:9px 18px;
-    border-radius:20px;transition:border-color .2s ease, color .2s ease;
-  }
-  .area-tags span:hover{border-color:var(--brass);color:var(--ink);}
+  .area-tags span{border:1px solid var(--line);color:var(--ink-soft);font-size:0.9rem;padding:9px 18px;border-radius:20px;}
 
-  /* ---------- the house / about ---------- */
   .about{display:grid;grid-template-columns:0.9fr 1.1fr;gap:70px;align-items:center;}
   @media(max-width:860px){.about{grid-template-columns:1fr;gap:40px;}}
   .about h2{font-size:clamp(1.9rem,3.4vw,2.5rem);}
@@ -315,18 +127,13 @@
   .founders-figure::before,.founders-figure::after{content:"";position:absolute;width:28px;height:28px;border:2px solid var(--brass);z-index:2;}
   .founders-figure::before{top:0;left:0;border-right:none;border-bottom:none;}
   .founders-figure::after{bottom:0;right:0;border-left:none;border-top:none;}
-  .founders-photo{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;border-radius:2px;}
-  .founders-figure .kb-frame{overflow:hidden;display:block;border-radius:2px;}
-  .founders-figure .kb-frame img{animation:kenburns 22s ease-in-out infinite alternate;}
+  .founders-photo{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
 
-  /* ---------- custom sourcing banner ---------- */
   #custom-sourcing{background:var(--walnut);}
   .sourcing-banner{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
   .sourcing-banner h2{color:var(--ivory);font-size:clamp(1.6rem,2.8vw,2.1rem);}
-  .sourcing-banner p{color:rgba(243,237,225,0.7);margin-top:10px;max-width:52ch;font-size:0.98rem;}
-  .sourcing-banner .btn{flex:0 0 auto;}
+  .sourcing-banner p{color:rgba(243,237,225,0.7);margin-top:10px;max-width:52ch;}
 
-  /* ---------- reserve / visit ---------- */
   .visit{background:var(--espresso);color:var(--ivory);}
   .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
   @media(max-width:860px){.visit-grid{grid-template-columns:1fr;gap:44px;}}
@@ -336,69 +143,42 @@
   .info-list dd{color:rgba(243,237,225,0.82);font-size:1.02rem;}
   form{display:flex;flex-direction:column;gap:16px;}
   form label{font-size:0.84rem;color:rgba(243,237,225,0.6);margin-bottom:6px;display:block;}
-  form input,form textarea{
-    width:100%;background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,0.28);
-    padding:10px 2px;color:var(--ivory);font-family:'Jost';font-size:0.98rem;
-  }
+  form input,form textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(243,237,225,0.28);padding:10px 2px;color:var(--ivory);font-family:'Jost';font-size:0.98rem;}
   form input:focus,form textarea:focus{outline:none;border-color:var(--brass-bright);}
   form textarea{min-height:100px;resize:vertical;}
-  form button{margin-top:10px;align-self:flex-start;}
 
-  /* ---------- newsletter ---------- */
-  .newsletter{background:var(--cream, var(--ivory));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0;}
+  .newsletter{background:var(--ivory);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0;}
   .newsletter-inner{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;}
-  .newsletter-inner h2{font-size:clamp(1.5rem,2.6vw,2rem);}
-  .newsletter-inner p{margin-top:8px;color:var(--ink-soft);font-size:0.98rem;max-width:42ch;}
-  .newsletter-form{display:flex;gap:12px;flex:0 0 auto;flex-wrap:wrap;}
-  .newsletter-form input[type="email"]{
-    background:transparent;border:none;border-bottom:1px solid var(--line);padding:12px 4px;
-    font-family:'Jost';font-size:0.98rem;color:var(--ink);min-width:240px;
-  }
-  .newsletter-form input[type="email"]:focus{outline:none;border-color:var(--brass);}
-  .newsletter-form .btn{white-space:nowrap;}
-  @media(max-width:640px){.newsletter-form{width:100%;}.newsletter-form input[type="email"]{flex:1;min-width:0;}}
+  .newsletter-inner p{margin-top:8px;color:var(--ink-soft);max-width:42ch;}
+  .newsletter-form{display:flex;gap:12px;flex-wrap:wrap;}
+  .newsletter-form input{background:transparent;border:none;border-bottom:1px solid var(--line);padding:12px 4px;font-family:'Jost';font-size:0.98rem;color:var(--ink);min-width:240px;}
+  .newsletter-form input:focus{outline:none;border-color:var(--brass);}
 
-  /* ---------- footer ---------- */
   footer{background:var(--espresso);border-top:1px solid var(--line);padding:56px 0 0;}
-  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:40px;}
   @media(max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;row-gap:32px;}}
-  @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
-  .footer-brand .logo-mark{width:32px;height:32px;}
-  .footer-brand .logo-text{color:var(--ivory);font-family:'Fraunces';font-size:1.1rem;font-weight:440;}
-  .footer-blurb{color:rgba(243,237,225,0.5);font-size:0.85rem;line-height:1.6;max-width:32ch;}
+  .footer-brand .logo-text{color:var(--ivory);}
+  .footer-blurb{color:rgba(243,237,225,0.5);font-size:0.85rem;max-width:32ch;}
   .footer-col .footer-heading{color:var(--brass-bright);font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;}
   .footer-col{display:flex;flex-direction:column;gap:10px;}
   .footer-col a{color:rgba(243,237,225,0.6);font-size:0.86rem;}
   .footer-col a:hover{color:var(--brass-bright);}
   .footer-bottom{border-top:1px solid var(--line);padding:22px 0;}
   .footer-bottom p{color:rgba(243,237,225,0.4);font-size:0.8rem;}
-  .footer-tagline{display:inline-block;margin-top:4px;color:var(--brass-bright);font-size:0.7rem;letter-spacing:0.06em;}
-  .social-links{display:flex;gap:16px;}
-  .social-links a{color:rgba(243,237,225,0.55);transition:color .2s ease;}
-  .social-links a:hover{color:var(--brass-bright);}
 
-  :focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
-  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+  .lightbox{display:none;position:fixed;inset:0;z-index:100;background:rgba(28,20,16,0.94);align-items:center;justify-content:center;padding:24px;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:90vh;}
+  .lightbox-close{position:absolute;top:20px;right:24px;background:none;border:1px solid rgba(243,237,225,0.4);color:var(--ivory);width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo">
-      <svg class="logo-mark" viewBox="0 0 60 60" role="img" aria-label="Haul and Heir crest">
-        <path class="lineart" d="M15 8 L15 30 Q15 44 30 49 Q45 44 45 30 L45 8 Q37 14 30 8 Q23 14 15 8 Z" fill="none"/>
-        <path class="lineart" d="M19 12 L19 29 Q19 40 30 44 Q41 40 41 29 L41 12 Q35 17 30 12 Q25 17 19 12 Z" fill="none" stroke="var(--brass)"/>
-        <path class="lineart" d="M22 33 Q22 26 28 25 L32 25 Q38 26 38 33 L38.5 40 L21.5 40 Z" fill="none"/>
-        <line class="lineart" x1="24.5" y1="40" x2="24.5" y2="43"/>
-        <line class="lineart" x1="35.5" y1="40" x2="35.5" y2="43"/>
-      </svg>
-      <span class="logo-text">Haul &amp; Heir</span>
-    </a>
+    <a href="#top" class="logo-text">Heathwood</a>
     <nav class="nav-links" id="navLinks">
       <a href="#collection">The Collection</a>
-      <a href="#moving">Moving</a>
-      <a href="#service-area">Areas Served</a>
       <a href="#about">The House</a>
       <a href="#visit" class="nav-cta">Visit</a>
     </nav>
@@ -409,52 +189,47 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <div class="eyebrow-mark"><span class="rule" style="background:var(--brass-bright)"></span>Three founders, one truck</div>
-      <h1>Furniture with a past.<br>A move done <em>properly</em>.</h1>
-      <p class="lede">We source and restore fine furniture — then move it, and everything else in your home, with the same care we'd give a piece worth keeping for generations.</p>
+      <div class="eyebrow-mark"><span class="rule" style="background:var(--brass-bright)"></span>Hand-selected, individually inspected</div>
+      <h1>Furniture built<br>to last <em>generations</em>.</h1>
+      <p class="lede">We hand-select furniture for solid construction and real materials — the kind of craftsmanship increasingly rare in furniture made today. Every piece is inspected to the same standard before it reaches you.</p>
       <div class="cta-row">
         <a href="#collection" class="btn btn-primary">View the collection</a>
-        <a href="tel:6475093577" class="btn btn-ghost">Enquire about a move</a>
+        <a href="#visit" class="btn btn-ghost">Book a visit</a>
       </div>
       <div class="hero-stat">
-        <div><b>Hands-on</b>three founders, one warehouse</div>
-        <div><b>White-glove</b>every move, every piece</div>
-        <div><b>By appointment</b></div>
+        <div><b>Hands-on</b>inspected piece by piece</div>
+        <div><b>Private</b>showroom, by appointment</div>
+        <div><b>Toronto</b>&amp; the GTA</div>
       </div>
     </div>
     <div class="hero-media">
       <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-      <img src="images/hero-detail.jpg" alt="Close-up of hand-carved chair finial and table edge" class="hero-art" id="heroArt">
+      <img src="images/hero-detail.jpg" alt="Close-up of hand-carved chair finial and table edge">
     </div>
   </div>
 </section>
 
 <div class="ticker">
   <div class="ticker-track">
-    <span>SOURCED &amp; RESTORED</span><span>WHITE-GLOVE MOVING</span><span>BY APPOINTMENT</span><span>PRIVATELY OWNED</span><span>GTA, Ontario, Canada</span>
-    <span>SOURCED &amp; RESTORED</span><span>WHITE-GLOVE MOVING</span><span>BY APPOINTMENT</span><span>PRIVATELY OWNED</span><span>GTA, Ontario, Canada</span>
+    <span>HAND-SELECTED</span><span>BY APPOINTMENT</span><span>PRIVATELY OWNED</span><span>GTA, Ontario, Canada</span>
+    <span>HAND-SELECTED</span><span>BY APPOINTMENT</span><span>PRIVATELY OWNED</span><span>GTA, Ontario, Canada</span>
   </div>
 </div>
 
 <section id="pillars">
-  <div class="wrap pillars-grid reveal">
+  <div class="wrap pillars-grid">
     <div class="pillar">
       <div class="pillar-num">I.</div>
-      <h3>Source</h3>
-      <p>We look where showrooms don't — estates, closing offices, family homes letting go of something well-made. Every piece starts with a real story, not a catalog number.</p>
+      <h3>Select</h3>
+      <p>We hand-select every piece for solid construction and real materials — the kind of craftsmanship that's increasingly rare in furniture made today.</p>
     </div>
     <div class="pillar">
       <div class="pillar-num">II.</div>
-      <h3>Restore</h3>
-      <p>Every piece meets one standard before it goes on the floor: would we keep it ourselves. Joinery repaired, hardware cleaned, finish brought back — nothing papered over.</p>
+      <h3>Craft</h3>
+      <p>Every piece meets one standard before it goes on the floor: built to be kept for good. Joinery checked, hardware finished, every detail brought to its best.</p>
     </div>
     <div class="pillar">
       <div class="pillar-num">III.</div>
-      <h3>Move</h3>
-      <p>The same crew that restores the collection handles your move. Padded, crated, and placed exactly where you want it — never handed off to a subcontractor.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">IV.</div>
       <h3>Access</h3>
       <p>New pieces don't get posted publicly until the list has had first look — by appointment, by referral, and soon, by invitation.</p>
     </div>
@@ -463,152 +238,92 @@
 
 <section id="collection">
   <div class="wrap">
-    <div class="kicker-block reveal">
+    <div class="kicker-block">
       <div class="rule" style="background:var(--brass)"></div>
       <h2>The current collection</h2>
-      <p>Each piece is sourced privately — estate sales, closing homes, expanding businesses, select consignment — then restored by hand. Reserve a piece by phone or in person; pieces are not held online.</p>
+      <p>Each piece is hand-selected for its craftsmanship and built to last. Reserve a piece by phone or in person; pieces are not held online.</p>
     </div>
 
-    <div class="pieces-grid reveal-stagger reveal">
-      <!-- STANDARD: every piece card should include a .featured-anchor line with a real, researched
-           comparable-price range (not guessed) — e.g. "Comparable [type] typically sell for $X–$Y." -->
+    <div class="pieces-grid">
       <div class="piece-card">
         <div class="piece-media" data-images='["images/dining-set-hutch.jpg","images/dining-hutch-2.jpg"]'>
           <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-          <div class="kb-frame">
-            <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" loading="lazy" decoding="async" class="piece-img clickable-photo" data-index="0" onclick="openLightbox(this.src, this.alt)">
-          </div>
-          <button class="carousel-arrow prev" type="button" aria-label="Previous photo" onclick="event.stopPropagation(); cycleCarousel(this, -1)">‹</button>
-          <button class="carousel-arrow next" type="button" aria-label="Next photo" onclick="event.stopPropagation(); cycleCarousel(this, 1)">›</button>
-          <div class="carousel-dots">
-            <span class="active"></span><span></span>
-          </div>
+          <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" class="piece-img" data-index="0" onclick="openLightbox(this.src,this.alt)">
         </div>
         <div class="piece-card-content">
           <h3>Solid oak dining set &amp; hutch</h3>
           <p class="tag">Eight-seat table, six chairs, matching hutch</p>
-          <p class="featured-desc">Sourced from a family in Oakville with English roots — it shows in the joinery and the detailing, the kind of craftsmanship you don't see in furniture built today. Run a hand across the table and you can still feel the grain under decades of care. This is the table Sunday dinners get built around.</p>
-          <p class="founder-note">— found in Oakville, worth the drive.</p>
-          <p class="featured-anchor">Comparable solid oak dining sets with a matching hutch typically retail for $4,000–$6,000 new.</p>
+          <p class="desc">Solid oak throughout with traditional joinery and detailing rarely seen in furniture built today. This is the table Sunday dinners get built around.</p>
+          <p class="anchor">Comparable solid oak dining sets with a matching hutch typically retail for $4,000–$6,000 new.</p>
           <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
         </div>
       </div>
-
       <div class="piece-card">
         <div class="piece-media">
           <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-          <div class="kb-frame">
-            <img src="images/italian-conference-table.jpg" alt="Italian conference table, high-gloss finish" loading="lazy" decoding="async" class="piece-img clickable-photo" onclick="openLightbox(this.src, this.alt)">
-          </div>
+          <img src="images/italian-conference-table.jpg" alt="Italian conference table, high-gloss finish" class="piece-img" onclick="openLightbox(this.src,this.alt)">
         </div>
         <div class="piece-card-content">
           <h3>Italian conference table</h3>
           <p class="tag">High-gloss lacquer finish, chrome-trimmed base</p>
-          <p class="featured-desc">This one came out of a business expanding operations — proof that boardroom furniture deserves a second life. The lacquer top is finished deep enough to mirror the room around it: the kind of table a deal gets closed on, or a dinner party gets elevated by.</p>
-          <p class="founder-note">— such a piece would have been let go as it wouldn't have fit in the new office.</p>
-          <p class="featured-anchor">Comparable Italian lacquer conference and dining tables typically sell for $2,500–$5,000.</p>
+          <p class="desc">A striking Italian lacquer top finished deep enough to mirror the room around it — built for a boardroom, equally at home as a dramatic dining or gathering table.</p>
+          <p class="anchor">Comparable Italian lacquer conference and dining tables typically sell for $2,500–$5,000.</p>
           <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
         </div>
       </div>
     </div>
-
-    <p class="featured-note" style="margin-top:36px;">New pieces are added as we find them — call or visit to ask what else is currently in the warehouse.</p>
+    <p style="margin-top:36px;color:var(--ink-soft);font-style:italic;font-size:0.9rem;">New pieces are added regularly — call or visit to see what's currently available.</p>
   </div>
 </section>
 
 <section id="newsletter" class="newsletter">
-  <div class="wrap newsletter-inner reveal">
+  <div class="wrap newsletter-inner">
     <div>
-      <h2>Be first to know</h2>
-      <p>New pieces don't get posted until they're ready — join the list to hear about arrivals before anyone else.</p>
+      <h2 style="font-size:clamp(1.5rem,2.6vw,2rem);">Be first to know</h2>
+      <p>New pieces don't get posted until they're ready — join the list to hear about arrivals first.</p>
     </div>
-    <form action="https://formspree.io/f/xyeydkqk" method="POST" id="newsletterForm" class="newsletter-form">
-      <input type="hidden" name="_subject" value="New arrivals list signup — Haul & Heir">
-      <input type="hidden" name="form_type" value="Newsletter signup">
-      <input type="email" name="email" id="newsletterEmail" placeholder="you@email.com" required>
+    <form action="https://formspree.io/f/REPLACE_ME" method="POST" id="newsletterForm" class="newsletter-form">
+      <input type="hidden" name="_subject" value="New arrivals list signup — Heathwood">
+      <input type="email" name="email" placeholder="you@email.com" required>
       <button type="submit" class="btn btn-primary">Notify me</button>
     </form>
   </div>
 </section>
 
-<section class="section-dark" id="moving">
-  <div class="wrap">
-    <div class="kicker-block reveal">
-      <div class="rule"></div>
-      <h2>White-glove moving</h2>
-      <p>The same three founders who restore the collection run every move — so anything valuable, fragile, or irreplaceable is handled like it's already ours.</p>
-    </div>
-    <div class="steps reveal-stagger reveal">
-      <div class="step">
-        <div class="num">I.</div>
-        <h3>Private walkthrough</h3>
-        <p>We assess in person and give a fixed quote — for a single heirloom piece or an entire estate.</p>
-      </div>
-      <div class="step">
-        <div class="num">II.</div>
-        <h3>Custom crating</h3>
-        <p>Fine pieces are individually padded, blanket-wrapped, and crated where needed — not stacked in a truck.</p>
-      </div>
-      <div class="step">
-        <div class="num">III.</div>
-        <h3>Placement, not delivery</h3>
-        <p>We unload, unwrap, and set every piece exactly where you want it, including anything new from the collection.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="philosophy">
-  <div class="wrap philosophy-inner reveal">
+  <div class="wrap philosophy-inner">
     <div class="rule" style="margin:0 auto 24px;"></div>
-    <p class="philosophy-statement">We restore every piece as if we were keeping it ourselves.</p>
+    <p class="philosophy-statement">We hold every piece to one standard: would we keep it ourselves.</p>
     <p class="philosophy-sub">Not as a slogan — as the actual standard something has to meet before it goes on the floor.</p>
   </div>
 </section>
 
-<section id="service-area">
-  <div class="wrap">
-    <div class="kicker-block reveal">
-      <div class="rule" style="background:var(--brass)"></div>
-      <h2>Where we serve</h2>
-      <p>Based in Toronto, covering the Greater Toronto Area. Outside this list? Ask — we take moves further out on a case-by-case basis.</p>
-    </div>
-    <div class="area-tags reveal">
-      <span>Toronto</span><span>Mississauga</span><span>Vaughan</span><span>Richmond Hill</span>
-      <span>Markham</span><span>Brampton</span><span>Oakville</span><span>Etobicoke</span>
-      <span>North York</span><span>Scarborough</span><span>Ajax</span><span>Pickering</span>
-    </div>
-  </div>
-</section>
-
 <section id="about">
-  <div class="wrap about reveal">
+  <div class="wrap about">
     <div class="founders-figure">
-      <div class="kb-frame">
-        <img src="images/about-detail.jpg" alt="Close-up of ornate brass hardware on the hutch" class="founders-photo">
-      </div>
+      <img src="images/about-detail.jpg" alt="Close-up of ornate brass hardware" class="founders-photo">
     </div>
     <div>
       <div class="rule" style="background:var(--brass);margin-bottom:20px;"></div>
       <h2>Three founders, one standard</h2>
-      <p>Haul &amp; Heir started when three friends — kept running into the same problem: good furniture, moved badly or thrown out due to a lack of space, ends up ruined.</p>
-      <p>We built the business backwards from that: source pieces worth keeping, then make sure the move never becomes the reason they don't survive another generation.</p>
+      <p>Heathwood started with a simple frustration: most furniture today isn't built to last, and the pieces that are rarely get the attention they deserve.</p>
+      <p>We built the business around one idea: find genuinely well-made furniture, and hold it to a standard worth keeping for good — no shortcuts, no compromises.</p>
     </div>
   </div>
 </section>
 
 <section id="custom-sourcing">
-  <div class="wrap sourcing-banner reveal">
+  <div class="wrap sourcing-banner">
     <div>
       <h2>Looking for something specific?</h2>
-      <p>We source privately through estate sales, closing businesses, and consignment — if there's a particular piece or style you're after, tell us and we'll keep an eye out as it comes through.</p>
+      <p>We hand-select pieces regularly — tell us what you're after and we'll keep an eye out for the right one.</p>
     </div>
     <a href="#visit" class="btn btn-primary">Tell us what you're looking for</a>
   </div>
 </section>
 
 <section class="visit" id="visit">
-  <div class="wrap visit-grid reveal">
+  <div class="wrap visit-grid">
     <div>
       <div class="rule" style="background:var(--brass-bright);margin-bottom:20px;"></div>
       <h2>Visit the showroom</h2>
@@ -616,25 +331,16 @@
         <div><dt>Showroom</dt><dd>Invite only</dd></div>
         <div><dt>Hours</dt><dd>By appointment</dd></div>
         <div><dt>Phone</dt><dd><a href="tel:6475093577">(647) 509-3577</a></dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:haulandheir@gmail.com">haulandheir@gmail.com</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:heathwood@gmail.com">heathwood@gmail.com</a></dd></div>
       </dl>
     </div>
     <div>
-      <form action="https://formspree.io/f/maeydqgw" method="POST" id="enquiryForm">
-        <input type="hidden" name="_subject" value="New enquiry — Haul & Heir">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required>
-        </div>
-        <div>
-          <label for="contact">Phone or email</label>
-          <input id="contact" name="contact" type="text" required>
-        </div>
-        <div>
-          <label for="msg">How can we help?</label>
-          <textarea id="msg" name="message" placeholder="A piece you're enquiring about, or details on a move..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send enquiry</button>
+      <form action="https://formspree.io/f/REPLACE_ME" method="POST" id="enquiryForm">
+        <input type="hidden" name="_subject" value="New enquiry — Heathwood">
+        <div><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+        <div><label for="contact">Phone or email</label><input id="contact" name="contact" type="text" required></div>
+        <div><label for="msg">How can we help?</label><textarea id="msg" name="message" placeholder="A piece you're enquiring about..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="margin-top:6px;align-self:flex-start;">Send enquiry</button>
       </form>
     </div>
   </div>
@@ -643,49 +349,22 @@
 <footer>
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <div class="logo" style="margin-bottom:14px;">
-        <svg class="logo-mark" viewBox="0 0 60 60" role="img" aria-label="Haul and Heir crest">
-          <path class="lineart" d="M15 8 L15 30 Q15 44 30 49 Q45 44 45 30 L45 8 Q37 14 30 8 Q23 14 15 8 Z" fill="none"/>
-          <path class="lineart" d="M19 12 L19 29 Q19 40 30 44 Q41 40 41 29 L41 12 Q35 17 30 12 Q25 17 19 12 Z" fill="none" stroke="var(--brass)"/>
-        </svg>
-        <span class="logo-text">Haul &amp; Heir</span>
-      </div>
-      <p class="footer-blurb">Fine furniture, sourced privately and restored by hand. White-glove moving for everything else. By appointment, Toronto &amp; the GTA.</p>
-      <div class="social-links" style="margin-top:16px;">
-        <a href="https://instagram.com/haulandheir" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
-        </a>
-        <a href="https://facebook.com/haulandheir" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.57 14.2 3.57c-2.4 0-4.05 1.47-4.05 4.16v2.16H7.5v3.1h2.65V21h3.35z"/></svg>
-        </a>
-      </div>
+      <div class="logo-text" style="margin-bottom:14px;display:block;">Heathwood</div>
+      <p class="footer-blurb">Fine, hand-selected furniture built to last. By appointment, Toronto &amp; the GTA.</p>
     </div>
-
     <div class="footer-col">
       <div class="footer-heading">About</div>
       <a href="#about">The House</a>
       <a href="#collection">The Collection</a>
-      <a href="#moving">Moving</a>
-      <a href="#service-area">Areas Served</a>
     </div>
-
     <div class="footer-col">
       <div class="footer-heading">Visit</div>
       <a href="#visit">Showroom &amp; Contact</a>
-      <a href="tel:6475093577">(647) 509-3577</a>
-      <a href="mailto:haulandheir@gmail.com">haulandheir@gmail.com</a>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-heading">Connect</div>
-      <a href="https://instagram.com/haulandheir" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://facebook.com/haulandheir" target="_blank" rel="noopener">Facebook</a>
-      <a href="#newsletter">Join the list</a>
+      <a href="mailto:heathwood@gmail.com">heathwood@gmail.com</a>
     </div>
   </div>
-
   <div class="wrap footer-bottom">
-    <p>© 2026 Haul &amp; Heir. Toronto, ON, Canada<br><span class="footer-tagline">FINE FURNITURE · WHITE-GLOVE MOVING</span></p>
+    <p>© 2026 Heathwood. Toronto, ON, Canada</p>
   </div>
 </footer>
 
@@ -694,122 +373,38 @@
   <img id="lightboxImg" src="" alt="">
 </div>
 
-<div class="mobile-cta" id="mobileCta">
-  <a href="tel:6475093577" class="btn btn-primary">Call &amp; Enquire</a>
-</div>
-
 <script>
   document.getElementById('navToggle').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
   });
-
-  // Lightbox for tapping/clicking a real product photo to view it larger.
   function openLightbox(src, alt){
-    const lb = document.getElementById('lightbox');
     document.getElementById('lightboxImg').src = src;
     document.getElementById('lightboxImg').alt = alt;
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    document.getElementById('lightbox').classList.add('open');
   }
   function closeLightbox(){
     document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
-  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
-  // Cycle through a piece's photo carousel (used when a piece has multiple images).
   function cycleCarousel(button, direction){
     const media = button.closest('.piece-media');
+    if (!media.dataset.images) return;
     const images = JSON.parse(media.dataset.images);
     const img = media.querySelector('.piece-img');
-    let index = parseInt(img.dataset.index, 10);
+    let index = parseInt(img.dataset.index || '0', 10);
     index = (index + direction + images.length) % images.length;
     img.src = images[index];
     img.dataset.index = index;
-    const dots = media.querySelectorAll('.carousel-dots span');
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
   }
 
-  // Scroll-reveal: fade + rise elements into view as the user scrolls.
-  const revealEls = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting){
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.15});
-  revealEls.forEach(el => revealObserver.observe(el));
-
-  // Subtle tilt on the hero illustration, following the cursor.
-  const heroArt = document.getElementById('heroArt');
-  if (heroArt && window.matchMedia('(hover:hover)').matches){
-    const heroSection = document.querySelector('.hero');
-    heroSection.addEventListener('mousemove', (e) => {
-      const rect = heroSection.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      heroArt.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
-    });
-    heroSection.addEventListener('mouseleave', () => {
-      heroArt.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
-    });
-  }
-
-  // Show the sticky mobile CTA once the user has scrolled past the hero.
-  const mobileCta = document.getElementById('mobileCta');
-  const heroEl = document.getElementById('top');
-  const ctaObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      mobileCta.classList.toggle('show', !entry.isIntersecting);
-    });
-  }, {threshold:0});
-  ctaObserver.observe(heroEl);
-
-  // Submits the newsletter signup to Formspree without reloading the page.
-  const newsletterForm = document.getElementById('newsletterForm');
-  newsletterForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    fetch(newsletterForm.action, {
-      method: 'POST',
-      headers: {'Accept': 'application/json'},
-      body: new FormData(newsletterForm)
-    })
-    .then((response) => {
-      if (response.ok){
-        newsletterForm.reset();
-        alert('You\'re on the list — we\'ll email you when new pieces arrive.');
-      } else {
-        alert('Something went wrong — please try again in a moment.');
-      }
-    })
-    .catch(() => {
-      alert('Something went wrong — please try again in a moment.');
-    });
-  });
-
-  // Submits the enquiry form to Formspree without reloading the page.
-  const enquiryForm = document.getElementById('enquiryForm');
-  enquiryForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    fetch(enquiryForm.action, {
-      method: 'POST',
-      headers: {'Accept': 'application/json'},
-      body: new FormData(enquiryForm)
-    })
-    .then((response) => {
-      if (response.ok){
-        enquiryForm.reset();
-        alert('Thank you — we\'ll be in touch shortly.');
-      } else {
-        alert('Something went wrong — please call or email us directly.');
-      }
-    })
-    .catch(() => {
-      alert('Something went wrong — please call or email us directly.');
+  ['enquiryForm','newsletterForm'].forEach(id => {
+    const form = document.getElementById(id);
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      fetch(form.action, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)})
+        .then(r => { if(r.ok){ form.reset(); alert('Thank you — we\'ll be in touch shortly.'); } else { alert('Something went wrong — please try again.'); } })
+        .catch(() => alert('Something went wrong — please try again.'));
     });
   });
 </script>
