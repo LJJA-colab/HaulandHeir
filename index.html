@@ -94,21 +94,32 @@
   .pillar h3{font-size:1.15rem;margin-bottom:10px;}
   .pillar p{font-size:0.92rem;color:var(--ink-soft);line-height:1.6;}
 
-  .pieces-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
-  @media(max-width:860px){.pieces-grid{grid-template-columns:1fr;gap:44px;}}
-  .piece-media{position:relative;padding:18px;}
-  .piece-media img{aspect-ratio:4/3;width:100%;object-fit:cover;cursor:zoom-in;}
-  .piece-media .corner{position:absolute;width:26px;height:26px;border:2px solid var(--brass);z-index:2;}
-  .piece-media .corner.tl{top:0;left:0;border-right:none;border-bottom:none;}
-  .piece-media .corner.tr{top:0;right:0;border-left:none;border-bottom:none;}
-  .piece-media .corner.bl{bottom:0;left:0;border-right:none;border-top:none;}
-  .piece-media .corner.br{bottom:0;right:0;border-left:none;border-top:none;}
-  .piece-card-content h3{font-size:clamp(1.4rem,2.2vw,1.7rem);margin-top:18px;}
-  .piece-card-content .tag{color:var(--ink-soft);font-size:0.9rem;margin-top:6px;}
-  .piece-card-content .desc{margin-top:16px;color:var(--ink-soft);font-size:0.98rem;max-width:48ch;}
-  .piece-card-content .founder-note{margin-top:10px;color:var(--ink-soft);font-size:0.86rem;font-style:italic;opacity:0.85;}
-  .piece-card-content .anchor{margin-top:10px;color:var(--brass);font-size:0.88rem;font-style:italic;}
-  .piece-card-content .btn{margin-top:22px;}
+  .piece-spread{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:center;margin-bottom:100px;}
+  .piece-spread.reverse{grid-template-columns:1fr 1.3fr;}
+  .piece-spread.reverse .piece-media{order:2;}
+  .piece-spread.reverse .piece-card-content{order:1;}
+  @media(max-width:860px){
+    .piece-spread,.piece-spread.reverse{grid-template-columns:1fr;gap:32px;margin-bottom:64px;}
+    .piece-spread.reverse .piece-media{order:0;}
+    .piece-spread.reverse .piece-card-content{order:0;}
+  }
+  .piece-media{position:relative;padding:0;}
+  .piece-media img.piece-img{aspect-ratio:5/4;width:100%;object-fit:cover;cursor:zoom-in;display:block;}
+  .piece-media .corner{position:absolute;width:32px;height:32px;border:2px solid var(--brass);z-index:2;}
+  .piece-media .corner.tl{top:-8px;left:-8px;border-right:none;border-bottom:none;}
+  .piece-media .corner.tr{top:-8px;right:-8px;border-left:none;border-bottom:none;}
+  .piece-media .corner.bl{bottom:-8px;left:-8px;border-right:none;border-top:none;}
+  .piece-media .corner.br{bottom:-8px;right:-8px;border-left:none;border-top:none;}
+  .carousel-arrow{display:none;position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid var(--brass);background:rgba(28,20,16,0.55);color:var(--ivory);font-size:1.2rem;cursor:pointer;align-items:center;justify-content:center;}
+  .piece-media[data-images] .carousel-arrow{display:flex;}
+  .carousel-arrow.prev{left:16px;}
+  .carousel-arrow.next{right:16px;}
+  .carousel-arrow:hover{background:var(--brass);color:var(--espresso);}
+  .piece-card-content h3{font-size:clamp(1.6rem,2.6vw,2.1rem);}
+  .piece-card-content .tag{color:var(--ink-soft);font-size:0.94rem;margin-top:8px;}
+  .piece-card-content .desc{margin-top:20px;color:var(--ink-soft);font-size:1.04rem;max-width:46ch;}
+  .piece-card-content .anchor{margin-top:14px;color:var(--brass);font-size:0.9rem;font-style:italic;}
+  .piece-card-content .btn{margin-top:26px;}
 
   #philosophy{position:relative;padding:110px 0;text-align:center;background:linear-gradient(rgba(28,20,16,0.86), rgba(28,20,16,0.9)), url('images/philosophy-bg.jpg');background-size:cover;background-position:center;}
   .philosophy-inner{max-width:640px;margin:0 auto;}
@@ -244,35 +255,37 @@
       <p>Each piece is hand-selected for its craftsmanship and built to last. Reserve a piece by phone or in person; pieces are not held online.</p>
     </div>
 
-    <div class="pieces-grid">
-      <div class="piece-card">
-        <div class="piece-media" data-images='["images/dining-set-hutch.jpg","images/dining-hutch-2.jpg"]'>
-          <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-          <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" class="piece-img" data-index="0" onclick="openLightbox(this.src,this.alt)">
-        </div>
-        <div class="piece-card-content">
-          <h3>Solid oak dining set &amp; hutch</h3>
-          <p class="tag">Eight-seat table, six chairs, matching hutch</p>
-          <p class="desc">Solid oak throughout with traditional joinery and detailing rarely seen in furniture built today. This is the table Sunday dinners get built around.</p>
-          <p class="anchor">Comparable solid oak dining sets with a matching hutch typically retail for $4,000–$6,000 new.</p>
-          <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
-        </div>
+    <div class="piece-spread">
+      <div class="piece-media" data-images='["images/dining-set-hutch.jpg","images/dining-hutch-2.jpg"]'>
+        <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+        <img src="images/dining-set-hutch.jpg" alt="Solid oak dining table, six chairs, and matching hutch" class="piece-img" data-index="0" onclick="openLightbox(this.src,this.alt)">
+        <button class="carousel-arrow prev" type="button" aria-label="Previous photo" onclick="event.stopPropagation(); cycleCarousel(this, -1)">‹</button>
+        <button class="carousel-arrow next" type="button" aria-label="Next photo" onclick="event.stopPropagation(); cycleCarousel(this, 1)">›</button>
       </div>
-      <div class="piece-card">
-        <div class="piece-media">
-          <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-          <img src="images/italian-conference-table.jpg" alt="Italian conference table, high-gloss finish" class="piece-img" onclick="openLightbox(this.src,this.alt)">
-        </div>
-        <div class="piece-card-content">
-          <h3>Italian conference table</h3>
-          <p class="tag">High-gloss lacquer finish, chrome-trimmed base</p>
-          <p class="desc">A striking Italian lacquer top finished deep enough to mirror the room around it — built for a boardroom, equally at home as a dramatic dining or gathering table.</p>
-          <p class="anchor">Comparable Italian lacquer conference and dining tables typically sell for $2,500–$5,000.</p>
-          <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
-        </div>
+      <div class="piece-card-content">
+        <h3>Solid oak dining set &amp; hutch</h3>
+        <p class="tag">Eight-seat table, six chairs, matching hutch</p>
+        <p class="desc">Solid oak throughout with traditional joinery and detailing rarely seen in furniture built today. This is the table Sunday dinners get built around.</p>
+        <p class="anchor">Comparable solid oak dining sets with a matching hutch typically retail for $4,000–$6,000 new.</p>
+        <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
       </div>
     </div>
-    <p style="margin-top:36px;color:var(--ink-soft);font-style:italic;font-size:0.9rem;">New pieces are added regularly — call or visit to see what's currently available.</p>
+
+    <div class="piece-spread reverse">
+      <div class="piece-media">
+        <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+        <img src="images/italian-conference-table.jpg" alt="Italian conference table, high-gloss finish" class="piece-img" onclick="openLightbox(this.src,this.alt)">
+      </div>
+      <div class="piece-card-content">
+        <h3>Italian conference table</h3>
+        <p class="tag">High-gloss lacquer finish, chrome-trimmed base</p>
+        <p class="desc">A striking Italian lacquer top finished deep enough to mirror the room around it — built for a boardroom, equally at home as a dramatic dining or gathering table.</p>
+        <p class="anchor">Comparable Italian lacquer conference and dining tables typically sell for $2,500–$5,000.</p>
+        <a href="#visit" class="btn btn-primary">Enquire about this piece</a>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;color:var(--ink-soft);font-style:italic;font-size:0.9rem;">New pieces are added regularly — call or visit to see what's currently available.</p>
   </div>
 </section>
 
